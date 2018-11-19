@@ -4,12 +4,15 @@
 # This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
 # Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
 
+#https://gohugo.io/getting-started/configuration/
+
 # The URL of your website.
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
-baseurl = "/"
+baseURL = "/"
 
 # Title of your site
 title = "TIS"
+
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
@@ -34,7 +37,7 @@ hasCJKLanguage = false  # Set `true` for Chinese/Japanese/Korean languages.
 defaultContentLanguageInSubdir = false
 
 # Get last modified date for content from Git?
-enableGitInfo = false
+enableGitInfo = true
 
 [outputs]
   home = [ "HTML", "CSS", "RSS" ]
@@ -58,7 +61,7 @@ enableGitInfo = false
 
   # Your details.
   name = "百岁"
-  role = "搜索平台架构师"
+  role = "搜索开发工程师"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
@@ -269,7 +272,7 @@ enableGitInfo = false
 
 [[menu.main]]
   name = "博客"
-  url = "#blog"
+  url = "/blog"
   weight = 4
 
 

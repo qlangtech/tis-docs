@@ -1,0 +1,32 @@
+{{ $rss := .rss }}
+
+<div class="sidebar nav-tags" data-type="{{.type}}">
+    {{- if .title -}}
+        <div class="title">
+            {{- .title -}}
+            {{- if $rss -}}
+                <a class="rss" href="{{.rss}}" title="RSS Feed">{{- partial "svgs/icon-rss.svg" (dict "fill" "#3A59F0" "width" 13 "height" 17 ) -}}</a>
+            {{- end -}}
+        </div>
+    {{- end -}}
+    <a href="#" class="tag all">ALL ({{ len .posts }})</a>
+    <div class="tag-list">
+        {{- range $name, $taxonomy := .global.Site.Taxonomies.tags -}}
+            
+			{{- $.global.Scratch.Set "tagCounter" 0 -}}
+            {{- range $.posts -}}       
+			     
+                {{- if in .Params.tags $name -}}
+                    {{- $.global.Scratch.Add "tagCounter" 1 -}}
+                {{- end -}}
+            {{- end -}}
+            {{- $count := $.global.Scratch.Get "tagCounter" -}}
+			
+            {{- if (gt $count  0) -}}
+                <a href="#{{ replace $name " " "-"}}" class="tag {{ if in $.global.Params.tags $name }}sel{{end}}" data-tag="{{ replace $name " " "-"}}">
+                {{- replace $name " " "-" -}}&nbsp;({{ $count }})
+                </a>
+            {{- end -}}
+        {{end}}
+    </div>
+</div>

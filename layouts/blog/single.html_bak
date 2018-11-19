@@ -1,0 +1,45 @@
+{{- define "headTpl" -}}
+    {{- partial "head/preload-css" (dict "href" "https://download.pingcap.com/style/github-markdown.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
+    {{$.Scratch.Set "nav_active" "blog"}}
+    {{$.Scratch.Set "data_i18_link" "/blog-cn" }}
+{{- end -}}
+
+{{- define "main" -}}
+    <div class="blog">
+        <div class="container">
+            {{ $posts := where (where .Site.Pages "Section" "blog") ".Params.title" "!=" nil  }}
+            {{- partial "navs/tags-nav.html" (dict "type" "single" "title" "Popular Tags" "posts" $posts "rss" "/blog/index.xml" "global" .) -}}
+            <div class="archive">
+                <div class="content markdown-body">
+                    <h1 class="title">{{ .Title }}</h1>
+                    <ul class="blog-post-meta">
+                        <li class="meta-item">
+                            <img src="/images/svgs/icon-date.svg">
+                        {{- .Date.Format "Mon, Jan 2, 2006" -}}
+                        </li>
+                        <li class="meta-item">
+                            <img src="/images/svgs/icon-writer.svg">
+                            {{- if .Params.author -}}
+                                {{ $len := len .Params.author }}
+                                {{- range $idx, $i := .Params.author -}}
+                                    {{ . }}
+                                    {{- if lt $idx (sub $len 1) -}} ,&nbsp; {{- end -}}
+                                {{- end -}}
+                            {{- else -}}
+                                PingCAP
+                            {{- end -}}
+                        </li>
+                    </ul>
+                    <div class="blog-text">{{- .Content -}}</div>
+                </div>
+                {{- partial "archives/post-share.html" . -}}
+            </div>
+        </div>
+    </div>
+{{- end -}}
+
+{{- define "footJS" -}}
+    <script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+    <script type="text/javascript" src="/js/doc.js"></script>
+{{- end -}}
