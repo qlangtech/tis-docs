@@ -109,6 +109,9 @@
   <link rel="apple-touch-icon" type="image/png" href="{{ "/img/icon-192.png" | relURL }}">
 
   <link rel="canonical" href="{{ .Permalink }}">
+  
+    {{- partial "head/preload-css" (dict "href" "/css/list.css") -}}
+    {{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
 
   <meta property="twitter:card" content="summary_large_image">
   {{ range where $.Site.Params.social ".icon" "twitter" }}
@@ -133,6 +136,8 @@
   {{ partial "head_custom" . }}
 
   <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+
+ 
 
 </head>
 <body id="top" data-spy="scroll" data-target="{{ if or .IsHome .Params.widgets }}#navbar-main{{ else }}#toc{{ end }}" data-offset="71" {{ if not ($scr.Get "light") }}class="dark"{{ end }}>

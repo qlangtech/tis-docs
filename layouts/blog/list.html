@@ -1,26 +1,86 @@
-{{- define "title" -}}
-    {{ $.Scratch.Set "metaTitle" "Blog" }}
-    Blog
-{{- end -}}
 
-{{- define "headTpl" -}}
-    {{$.Scratch.Set "nav_active" "blog"}}
-    {{$.Scratch.Set "data_i18_link" "/blog-cn" }}
-    {{- partial "head/preload-css" (dict "href" "/css/list.css") -}}
-    {{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
-{{- end -}}
+{{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
+{{ $current_page := . }}
 
-{{- define "main" -}}
-    <div class="blog">
-        <div class="container">
-        {{ $posts := where (where .Site.Pages "Section" "blog") ".Params.title" "!=" nil  }}
-        {{- partial "navs/tags-nav.html" (dict "type" "list" "title" "Popular Tags" "posts" $posts "rss" "/blog/index.xml" "global" .) -}}
-        {{- partial "archives/list.html" (dict "posts" $posts.ByDate.Reverse "hasMetaData" "true" "hasBrief" "true" "global" .) -}}
-        </div>
+
+
+<div class="container body-content docs blog">
+
+  <div class="row">
+  <!--
+    <nav id="docs-navbar" class="docs-nav visible-md visible-lg affix">
+
+      <ul id="docs-main-nav">
+        {{ range .Site.Menus.posts.ByWeight }}
+        <li {{ if .HasChildren }}class="panel collapsed"{{ end }}{{ if $current_page.IsMenuCurrent "posts" . }}class="active"{{ end }}>
+          {{ if .HasChildren }}
+          <a class="area {{ if not ($current_page.HasMenuCurrent "posts" .) }}collapsed{{end}}" href="#{{ .Name | urlize }}" data-parent="#docs-main-nav" data-toggle="collapse" aria-expanded="{{ if $current_page.HasMenuCurrent "posts" . }}true{{ else }}false{{ end }}">{{ .Name }} <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+
+          <ul id="{{ .Name | urlize }}" class="collapse {{ if or ($current_page.IsMenuCurrent "posts" .) ($current_page.HasMenuCurrent "posts" .) }}in{{ end }}">
+            {{ range .Children }}
+            <li {{ if $current_page.IsMenuCurrent "posts" . }}class="active"{{ end }}>
+              <a href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+          </ul>
+          {{ else }}
+          <a href="{{ .URL }}">{{ .Name }}</a>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ul>
+    </nav>
+-->
+
+   {{ $posts := where (where .Site.Pages "Section" "blog") ".Params.title" "!=" nil  }}
+  <div class="col-md-3">
+  
+  
+   {{- partial "navs/tags-nav.html" (dict "type" "single" "title" "热门标签" "posts" $posts "rss" "/blog/index.xml" "global" .) -}}
+  </div>
+    <!-- 
+    <div class="col-md-2">
+      <nav id="small-nav" class="docs-nav hidden-md hidden-lg">
+        <h4>Topics</h4>
+        {{ $menu := .Site.Menus.posts.ByWeight }}
+        <ul>
+        {{ range $menu }}
+          <li>
+            {{ if .HasChildren }}
+              {{ .Name }}
+              <ul>
+              {{ range .Children }}
+                <li>
+                  <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+              {{ end }}
+              </ul>
+            {{ else }}
+              <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
     </div>
-{{- end -}}
+     -->
+    
+    
+    <div class="col-sm-9 col-md-9 body">
 
-{{- define "footJS" -}}
-    <script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
-    <script type="text/javascript" src="/js/doc.js"></script>
-{{- end -}}
+      
+        {{- partial "archives/list.html" (dict "posts" $posts.ByDate.Reverse "hasMetaData" "true" "hasBrief" "true" "global" .) -}}
+
+      
+    </div>
+
+    
+
+  </div>
+</div>
+
+{{ partial "footer_container.html" . }}
+{{ partial "footer.html" . }}
+ <script type="text/javascript" src="/js/vendor/lazyload.min.js"></script>
+ <script type="text/javascript" src="/js/doc.js"></script>

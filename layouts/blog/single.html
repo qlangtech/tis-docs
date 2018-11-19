@@ -2,59 +2,17 @@
 {{ partial "navbar.html" . }}
 {{ $current_page := . }}
 
-
 <div class="container body-content docs">
+
+
+
   <div class="row">
-  <!--
-    <nav id="docs-navbar" class="docs-nav visible-md visible-lg affix">
 
-      <ul id="docs-main-nav">
-        {{ range .Site.Menus.posts.ByWeight }}
-        <li {{ if .HasChildren }}class="panel collapsed"{{ end }}{{ if $current_page.IsMenuCurrent "posts" . }}class="active"{{ end }}>
-          {{ if .HasChildren }}
-          <a class="area {{ if not ($current_page.HasMenuCurrent "posts" .) }}collapsed{{end}}" href="#{{ .Name | urlize }}" data-parent="#docs-main-nav" data-toggle="collapse" aria-expanded="{{ if $current_page.HasMenuCurrent "posts" . }}true{{ else }}false{{ end }}">{{ .Name }} <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 
-          <ul id="{{ .Name | urlize }}" class="collapse {{ if or ($current_page.IsMenuCurrent "posts" .) ($current_page.HasMenuCurrent "posts" .) }}in{{ end }}">
-            {{ range .Children }}
-            <li {{ if $current_page.IsMenuCurrent "posts" . }}class="active"{{ end }}>
-              <a href="{{ .URL }}">{{ .Name }}</a>
-            </li>
-            {{ end }}
-          </ul>
-          {{ else }}
-          <a href="{{ .URL }}">{{ .Name }}</a>
-          {{ end }}
-        </li>
-        {{ end }}
-      </ul>
-    </nav>
--->
-
-{{ $posts := where (where .Site.Pages "Section" "blog") ".Params.title" "!=" nil  }}
-            {{- partial "navs/tags-nav.html" (dict "type" "single" "title" "热门标签" "posts" $posts "rss" "/blog/index.xml" "global" .) -}}
+   {{ $posts := where (where .Site.Pages "Section" "blog") ".Params.title" "!=" nil  }}
+  
     <div class="col-md-2">
-      <nav id="small-nav" class="docs-nav hidden-md hidden-lg">
-        <h4>Topics</h4>
-        {{ $menu := .Site.Menus.posts.ByWeight }}
-        <ul>
-        {{ range $menu }}
-          <li>
-            {{ if .HasChildren }}
-              {{ .Name }}
-              <ul>
-              {{ range .Children }}
-                <li>
-                  <a href="{{ .URL }}">{{ .Name }}</a>
-                </li>
-              {{ end }}
-              </ul>
-            {{ else }}
-              <a href="{{ .URL }}">{{ .Name }}</a>
-            {{ end }}
-          </li>
-          {{ end }}
-        </ul>
-      </nav>
+       {{- partial "navs/tags-nav.html" (dict "type" "single" "title" "热门标签" "posts" $posts "rss" "/blog/index.xml" "global" .) -}}
     </div>
 
     <div class="col-sm-9 col-md-8 body">
