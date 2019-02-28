@@ -16,7 +16,7 @@ title = "TIS"
 
 # Your copyright notice - appears in site footer.
 # To display a copyright symbol, type `&copy;`.
-copyright = "&copy; 2018"
+copyright = "&copy; 2019"
 
 theme = "academic"
 enableEmoji = true
@@ -57,7 +57,7 @@ enableGitInfo = true
 
   # Font style.
   #   Choose from `default`, `classic`, or `playfair`.
-  font = "default"
+  font = "classic"
 
   # Your details.
   name = "百岁"
@@ -287,12 +287,12 @@ enableGitInfo = true
   url = "/posts/intro-tis"
   
 [[menu.posts]] 
-  name = "TIS快速入门指南"
+  name = "TIS安装说明"
   weight = 2
   url = "/posts/intro-tis"
   
 [[menu.posts]] 
-  name = "用户文档"
+  name = "TIS使用手册"
   weight = 3
   url = "/posts/intro-tis"
 

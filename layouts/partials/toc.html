@@ -2,7 +2,7 @@
 {{ $has_headers := ge (len $headers) 1 }}
 {{ if $has_headers }}
 <nav id="toc" data-toggle="toc">
-  <h4 class="text-muted">Contents</h4>
+  <h4 class="text-muted">本页导航</h4>
   <ul class="nav">
     {{ range $i, $header := $headers }}
       {{ $header_level := index (findRE "[1-3]" . 1) 0 }}
