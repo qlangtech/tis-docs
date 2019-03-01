@@ -1,11 +1,6 @@
 <div class="ssba-wrap">
     <div class="ssba">
-        <a class="ssba_mail_share" href="mailto:info@pingcap.com">
-        {{ partial "svgs/icon-mail.svg" (dict "width" 18 "height" 18 ) }}
-        </a>
-        <a id="wechat_share_btn" data-site="wechat" data-url="{{ .URL | absURL }}" class="ssba_wechat_share" href="javascript:void(0)" onclick="toggleBlogQRCode()">
-        {{ partial "svgs/icon-weixin.svg" (dict "width" 18 "height" 18 ) }}
-        </a>
+       
     </div>
 </div>
 
@@ -68,37 +63,5 @@
 
 <script type="text/javascript" src="/js/vendor/qrcode.min.js"></script>
 <script type="text/javascript">
-    window.onload = function() {
-        var close_share_qrcode_btn = document.getElementById('close_share_qrcode')
-        var wechat_share_btn = document.getElementById('wechat_share_btn')
-        var blog_url = wechat_share_btn.getAttribute('data-url')
-
-        window.pingcap_blog_qrcode = new QRCode(
-            document.getElementById('share_qrcode'),
-            {
-            text: blog_url,
-            width: 128,
-            height: 128,
-            colorDark: '#000000',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-            }
-        )
-
-        close_share_qrcode_btn.addEventListener('click', function(event) {
-            document
-            .getElementById('share_qrcode_outer')
-            .setAttribute('class', 'f-hide')
-        })
-    }
-
-    function toggleBlogQRCode() {
-        var qrcode_wrapper = document.getElementById('share_qrcode_outer')
-
-        if (qrcode_wrapper.getAttribute('class') == 'f-hide') {
-            qrcode_wrapper.setAttribute('class', 'fixed-qrcode')
-        } else {
-            qrcode_wrapper.setAttribute('class', 'f-hide')
-        }
-    }
+   
 </script>
