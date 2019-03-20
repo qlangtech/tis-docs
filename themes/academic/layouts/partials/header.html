@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="搜索|solr|搜索引擎|es|lucene|大数据">
+  <meta name="description" content="TIS是一款为用户提供一站式搜索引擎服务的企业化产品，它基于Solr，具有方便、快捷、稳定、易维护的特性">
   <meta name="theme" content="hugo-academic">
   {{ .Hugo.Generator }}
   {{ with .Site.Params.name }}<meta name="author" content="{{ . }}">{{ end }}
@@ -21,7 +23,6 @@
       {{ $scr.Set "description" .Summary }}
     {{ end }}
   {{ end }}
-  <meta name="description" content="{{ $scr.Get "description" }}">
 
   {{ range .Translations }}
   <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
@@ -113,11 +114,7 @@
     {{- partial "head/preload-css" (dict "href" "/css/list.css") -}}
     {{- partial "head/preload-css" (dict "href" "/css/doc.css") -}}
 
-  <meta property="twitter:card" content="summary_large_image">
-  {{ range where $.Site.Params.social ".icon" "twitter" }}
-  <meta property="twitter:site" content="@{{ replaceRE "^//twitter.com/([^/]+)" "$1" .link }}">
-  <meta property="twitter:creator" content="@{{ replaceRE "^//twitter.com/([^/]+)" "$1" .link  }}">
-  {{ end }}
+  
   <meta property="og:site_name" content="{{ .Site.Title }}">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}">

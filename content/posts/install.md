@@ -64,7 +64,7 @@ Ansible脚本存放在github仓库中 [https://github.com/qlangtech/tis-ansible]
      
 ### 初始化配置文件
  
-  编辑tis-ansible目录下inventory/hosts文件，该文件配置信息分为两部分：
+  编辑tis-ansible目录下 **vi inventory/hosts**文件，该文件配置信息分为两部分：
  
  - 服务器节点
 
@@ -90,19 +90,19 @@ Ansible脚本存放在github仓库中 [https://github.com/qlangtech/tis-ansible]
 
  - 系统配置参数
  
-|  Key                            |      说明             |  例子  | 是否必须|
+|  Key                            |      说明             |  例子  | 必须|
 |----------                       |:-------------   |:------|:------:|
 |git_src                          | tis github地址，当使用release包安装时可以不配置       | git@github.com:baisui1981/tis.git     | N|
 |git_branch                       | tis github 分支，当使用release包安装时可以不配置   |   master | N|
 |runtime                          | 系统运行的环境，有 **'daily'**和**'online'**  |    daily    |  Y |
 |task_worker_memory               | 任务中心JVM启动分配的堆内存大小 | 400m       | Y |
-|tis_online_repository            |SolrNode节点          |根据业务可配置多台 |
-|hdfs_namenode_ha1                |SolrNode节点          |根据业务可配置多台 |
-|hdfs_namenode_ha2                |SolrNode节点          |根据业务可配置多台 |
-|tisconsole_db_url                |SolrNode节点          |根据业务可配置多台 |
-|tisconsole_db_username           |SolrNode节点          |根据业务可配置多台 |
-|tisconsole_db_password           |SolrNode节点          |根据业务可配置多台 |
-|tisconsole_db_dbname             |SolrNode节点          |根据业务可配置多台 |
+|tis_online_repository            | 线上TIS仓库地址           |http://myhost |N|
+|hdfs_namenode_ha1                |hdfs地址1             |10.1.2.1 |Y|
+|hdfs_namenode_ha2                |hdfs地址2,可以和1相同  | 10.1.2.2 |Y|
+|tisconsole_db_url                |tisMysql数据库url     |127.0.0.1 |Y|
+|tisconsole_db_username           |tisMysql数据库用户名    |root |Y|
+|tisconsole_db_password           |tisMysql数据库密码       |root |Y|
+|tisconsole_db_dbname             |tisMysql数据库dbname  |tis_console |Y|
  
  
 
@@ -137,4 +137,30 @@ Ansible脚本存放在github仓库中 [https://github.com/qlangtech/tis-ansible]
 }
  ```
  显示全部节点能够联通，可进入下一步。
+ 
+### 触发安装命令
+
+ 安装模式分为两种:
+
+ 1. 一种通过已经发布的release包（已经deploy到aliyun OSS中）直接在目标服务器上部署安装。对应的脚本为: ./tis-ansible/deploy-tis-by-release.yml
+
+ 2. 另外一种是通过clone github源代码 [https://github.com/qlangtech/tis-solr](https://github.com/qlangtech/tis-solr)到本地执行编译打包之后自动部署到目标服务器上。对应脚本为: ./tis-ansible/deploy-tis-by-compile.yml
+
+ 以第一种模式为例执行命令为：
+ ```
+  cd tis-ansible
+  ansible-playbook deploy-tis-by-release.yml -i ./inventory/host
+ ```
+ 安装过程需要一点时间，请耐心等待。当顺利执行完成之后就可以进入下一步了。
+ 
+### 系统初始化
+
+打开tis-console节点(TIS中央控制台) 
+
+ 
+ 
+ 
+ 
+
+
 

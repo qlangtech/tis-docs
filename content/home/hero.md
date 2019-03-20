@@ -24,12 +24,14 @@ weight = 1
   label = '<i class="fa fa-download"></i> Install Now'
 +++
      
-<a style="text-decoration: none" href="/posts/intro-tis">TIS（Terminator Index Searcher）是一款具有高性能、高可靠、高扩展性的为企业级用户提供的一站式搜索平台化产品</a> :rocket:
+<a style="text-decoration: none" href="/posts/intro-tis">TIS是一款基于SOLR的具有高性能、高可靠、高扩展性的为企业级、一站式搜索平台化产品</a> :rocket:
 <br>
+<!--
 <small><a id="academic-release" href="https://sourcethemes.com/academic/updates">Latest release</a></small>
+-->
 <br><br>
-<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=qlangtech&amp;repo=tis&amp;type=star&amp;count=true&amp;size=large" scrolling="0" width="160px" height="30px" frameborder="0"></iframe>
-<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=qlangtech&amp;repo=tis&amp;type=fork&amp;count=true&amp;size=large" scrolling="0" width="158px" height="30px" frameborder="0"></iframe>
+<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=qlangtech&amp;repo=tis-solr&amp;type=star&amp;count=true&amp;size=large" scrolling="0" width="160px" height="30px" frameborder="0"></iframe>
+<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=qlangtech&amp;repo=tis-solr&amp;type=fork&amp;count=true&amp;size=large" scrolling="0" width="158px" height="30px" frameborder="0"></iframe>
 
 <script type="text/javascript">
   (function defer() {
@@ -42,10 +44,10 @@ weight = 1
     }
   })();  
   function GetLatestReleaseInfo() {
-    $.getJSON('https://api.github.com/repos/qlangtech/tis/tags').done(function (json) {
-      let release = json[0];
+  //  $.getJSON('https://api.github.com/repos/qlangtech/tis/tags').done(function (json) {
+  //    let release = json[0];
       // let downloadURL = release.zipball_url;
-      $('#academic-release').text('Latest release ' + release.name);  
-    });    
-}  
+  //    $('#academic-release').text('Latest release ' + release.name);  
+   // });    
+  }  
 </script>
