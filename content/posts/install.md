@@ -149,7 +149,7 @@ Ansible脚本存放在github仓库中 [https://github.com/qlangtech/tis-ansible]
  以第一种模式为例执行命令为：
  ```
   cd tis-ansible
-  ansible-playbook deploy-tis-by-release.yml -i ./inventory/host
+  ansible-playbook deploy-tis-by-release.yml -i ./inventory/hosts
  ```
  安装过程需要一点时间，请耐心等待。当顺利执行完成之后就可以进入下一步了。
  
