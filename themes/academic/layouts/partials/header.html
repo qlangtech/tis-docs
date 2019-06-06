@@ -82,21 +82,15 @@
 
   {{ if not .Site.IsServer }}
   {{ if .Site.GoogleAnalytics }}
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', '{{ .Site.GoogleAnalytics }}', 'auto');
-      {{ if .Site.Params.privacy_pack }}ga('set', 'anonymizeIp', true);{{ end }}
-      ga('require', 'eventTracker');
-      ga('require', 'outboundLinkTracker');
-      ga('require', 'urlChangeTracker');
-      ga('send', 'pageview');
-    </script>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
-    {{ if not .Site.Params.disable_sri }}
-    {{ printf "<script async src=\"https://cdnjs.cloudflare.com/ajax/libs/autotrack/%s/autotrack.js\" integrity=\"%s\" crossorigin=\"anonymous\"></script>" $sri.js.autotrack.version $sri.js.autotrack.sri | safeHTML }}
-    {{ else }}
-    <script async src="//cdnjs.cloudflare.com/ajax/libs/autotrack/{{- $sri.js.autotrack.version -}}/autotrack.js"></script>
-    {{ end }}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ .Site.GoogleAnalytics }}');
+</script>
+  
   {{ end }}
   {{ end }}
 
