@@ -82,17 +82,20 @@
 
   {{ if not .Site.IsServer }}
   {{ if .Site.GoogleAnalytics }}
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+
+  
+  {{ end }}
+  {{ end }}
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140709779-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', '{{ .Site.GoogleAnalytics }}');
+  gtag('config', 'UA-140709779-1');
 </script>
   
-  {{ end }}
-  {{ end }}
 
   {{ if or .Site.RSSLink .RSSLink }}
   <link rel="alternate" href="{{ .RSSLink | default .Site.RSSLink  }}" type="application/rss+xml" title="{{ .Site.Title }}">
