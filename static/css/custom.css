@@ -238,6 +238,7 @@ nav[data-toggle='toc'] .nav .nav > li > a:focus {
 
 nav[data-toggle='toc'] .nav .nav > .active > a,
 nav[data-toggle='toc'] .nav .nav > .active:hover > a,
+
 nav[data-toggle='toc'] .nav .nav > .active:focus > a {
   padding-left: 28px;
   font-weight: 500;
@@ -245,4 +246,10 @@ nav[data-toggle='toc'] .nav .nav > .active:focus > a {
 
 nav[data-toggle='toc'] .nav > .active > ul {
   display: block;
+}
+
+@media (min-width: 1400px){
+ .container{
+	width:1340px;
+ }
 }
