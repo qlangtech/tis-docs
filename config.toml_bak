@@ -60,12 +60,12 @@ enableGitInfo = true
   font = "classic"
 
   # Your details.
-  name = "百岁"
-  role = "搜索开发工程师"
+  name = "莫正华（百岁）"
+  role = "搜索研发专家"
 
   # Organizations/Affiliations.
   #   Separate multiple entries with a comma, using the form: `[ {name="Org1", url=""}, {name="Org2", url=""} ]`.
-  organizations = [ { name = "二维火平台架构部-平台架构", url = "" } ]
+  organizations = [ { name = "曾任职于阿里巴巴搜索事业部(2008～2015)，职位搜索研发专家(P7、工号18097)", url = "" } ]
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait-baisui.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
@@ -280,18 +280,18 @@ enableGitInfo = true
   name = "联系"
   url = "#contact"
   weight = 6
-  
-[[menu.posts]] 
+
+[[menu.posts]]
   name = "TIS介绍与整体架构"
   weight = 1
   url = "/posts/intro-tis"
-  
-[[menu.posts]] 
+
+[[menu.posts]]
   name = "TIS安装说明"
   weight = 2
   url = "/posts/intro-tis"
-  
-[[menu.posts]] 
+
+[[menu.posts]]
   name = "TIS使用手册"
   weight = 3
   url = "/posts/intro-tis"
