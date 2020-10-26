@@ -1,0 +1,85 @@
+# Navigation Links
+#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
+#     desired widget in your `content/home/` folder.
+#   The weight parameter defines the order that the links will appear in.
+
+#[[main]]
+#  pre = "<i class=\"fas fa-home pr-1\" style=\"color: #00d1b2;\"></i>"
+#  name = "Home"
+#  url = "#hero"
+#  weight = 5
+
+#[[main]]
+#  pre = "<i class=\"fas fa-images pr-1\" style=\"color: #00d1b2;\"></i>"
+#  name = "展示柜"
+#  url = "../user-stories/"
+#  weight = 10
+#
+#[[main]]
+#  pre = "<i class=\"fas fa-heart pr-1\" style=\"color: #00d1b2;\"></i>"
+#  name = "参与贡献"
+#  url = "../plans/"
+#  weight = 20
+#
+#[[main]]
+#  pre = "<i class=\"fas fa-brush pr-1\" style=\"color: #00d1b2;\"></i>"
+#  name = "主题"
+#  url = "../templates/"
+#  weight = 30
+
+[[main]]
+  pre = "<i class=\"fas fa-book pr-1\" style=\"color: #00d1b2;\"></i>"
+  name = "文档"
+  url = "../docs/"
+  weight = 40
+
+[[main]]
+  pre = "<i class=\"fas fa-flag pr-1\" style=\"color: #00d1b2;\"></i>"
+  name = "成功案例"
+  url = "../user-stories/"
+  weight = 50
+
+[[main]]
+  pre = "<i class=\"fas fa-brush pr-1\" style=\"color: #00d1b2;\"></i>"
+  name = "博客"
+  url = "../blog/"
+  weight = 30
+
+[[main]]
+  pre = "<i class=\"fas fa-newspaper pr-1\" style=\"color: #00d1b2;\"></i>"
+  name = "版本更新"
+  url = "../updates/"
+  weight = 60
+
+# Right menu
+
+#[[main_right]]
+#  name = "<i class=\"fab fa-github-alt\" style=\"font-size: 1rem; line-height: 1.25\"></i>"
+#  post = ""
+#  url = "https://github.com/wowchemy/wowchemy-hugo-modules"
+#  weight = 10
+#
+#[[main_right]]
+#  name = "<i class=\"fab fa-discord\" style=\"color: #7289DA; font-size: 1rem; line-height: 1.25\"></i>"
+#  post = ""
+#  url = "https://discord.gg/z8wNYzb"
+#  weight = 20
+#
+#[[main_right]]
+#  name = "<i class=\"far fa-question-circle\" style=\"color: rgb(123, 22, 255); font-size: 1rem; line-height: 1.25\"></i>"
+#  post = ""
+#  url = "https://github.com/wowchemy/wowchemy-hugo-modules/discussions"
+#  weight = 30
+#
+#[[main_right]]
+#  name = "<i class=\"fab fa-twitter\" style=\"color: #55acee; font-size: 1rem; line-height: 1.25\"></i>"
+#  post = ""
+#  url = "https://twitter.com/wowchemy"
+#  weight = 40
+
+[[main_right]]
+  pre = "<span class=\"btn btn-primary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3\" style=\"padding: 0.3rem;\">"
+  name = "开始创建"
+  post = "</span>"
+  url = "../docs/install/"
+  weight = 50

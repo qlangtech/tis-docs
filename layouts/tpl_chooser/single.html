@@ -1,0 +1,46 @@
+{{- define "main" -}}
+{{ $page := . }}
+<article class="article">
+
+  {{/* partial "page_header" . */}}
+  <div class="container">
+    <h1 class="pt-3 pb-2">{{.Title}}</h1>
+
+    {{ with .Content }}
+    <div class="article-style">
+      {{ . }}
+    </div>
+    {{end}}
+
+    <div class="row pb-5" id="tpl-gallery">
+      {{ range site.Data.templates.template }}
+      <div class="col-12 col-lg-4">
+        <div>
+          <div class="browserbar"></div>
+          {{ $image := $page.Resources.GetMatch (printf "%s.png" .image) }}
+          {{ if $image }}
+          {{ $image_proc := $image.Resize "700x" }}
+          <div class="tpl-image-container">
+          <img src="{{ $image_proc.RelPermalink }}" class="w-100">
+            <div class="tpl-overlay">
+              <div class="tpl-overlay-cta">
+                <div class="btn-group-vertical">
+                  <a href="https://app.netlify.com/start/deploy?repository={{.repo}}" class="btn btn-primary btn-lg" target="_blank">Create Site ✏️</a>
+                  <a href="{{.demo}}" class="btn btn-primary btn-lg" target="_blank">View Demo 👀</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{end}}
+        </div>
+        <p class="tpl-name">{{.name|markdownify|emojify}}</p>
+      </div>
+      {{end}}
+    </div>
+
+    {{ partial "page_footer" . }}
+
+  </div>
+</article>
+
+{{- end -}}

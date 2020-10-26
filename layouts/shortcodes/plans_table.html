@@ -1,0 +1,93 @@
+{{ $str_discord := "Access to the secret channel on Discord, shh! 🙊" }}
+{{ $str_powered := "Easily remove <i>Powered by</i> notice whilst still supporting Wowchemy^" }}
+{{ $str_stickers := "🧙‍ Magical Source<i>rer</i> stickers️" }}
+{{ $str_upgrade_public := "📈 Access to Upgrade Assistant (once launched) for 1 public GitHub repo" }}
+{{ $str_upgrade_private := "📈 Access to Upgrade Assistant (once launched) for public/private GitHub repos" }}
+{{ $str_supporter_list := "Your name and link^^ on this site 🙌" }}
+{{ $str_pub_import := "📚 Easy Publication Importer (once launched) for GitHub repos" }}
+{{ $str_templates := "🦄 Pro Templates" }}
+
+<section class="pricing py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Free Tier -->
+      <div class="col">
+        <div class="card mb-5 mb-lg-2">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">STARTER</h5>
+            <h6 class="card-price text-center">FREE<span class="period"></span></h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Open source</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community support</li>
+            </ul>
+            <a href="../docs/install/" class="btn btn-block btn-primary text-uppercase">Get Started</a>
+          </div>
+        </div>
+      </div>
+      <!-- $1 Tier -->
+      <div class="col">
+        <div class="card mb-5 mb-lg-2">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">BACKER</h5>
+            <h6 class="card-price text-center">$1<span class="period">/month</span></h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{ safeHTML $str_discord }}</b></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>A warm feeling from knowing you're contributing to Wowchemy's future</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community support</li>
+            </ul>
+            <a href="https://github.com/sponsors/gcushen/sponsorships?sponsor=gcushen&tier_id=37565" class="btn btn-block btn-primary text-uppercase"><i class="fab fa-github pr-1"></i>Join with GitHub</a>
+            <a href="https://www.patreon.com/join/cushen/checkout?rid=4836478" class="btn btn-block btn-primary text-uppercase"><i class="fab fa-patreon pr-1"></i>Join with Patreon</a>
+          </div>
+        </div>
+      </div>
+      <div class="w-100"></div>
+      <!-- $5 Tier -->
+      <div class="col">
+        <div class="card mb-5 mb-lg-2">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">UPGRADER</h5>
+            <h6 class="card-price text-center">$5<span class="period">/month</span></h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{ safeHTML $str_powered }}</b></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{ safeHTML $str_upgrade_public }}</b></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>{{ safeHTML $str_discord }}</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community support</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{{ safeHTML $str_stickers }}</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{{ safeHTML $str_pub_import }}</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{{ safeHTML $str_upgrade_private }}</li>
+              <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>{{ safeHTML $str_supporter_list }}</li>
+            </ul>
+            <a href="https://github.com/sponsors/gcushen/sponsorships?sponsor=gcushen&tier_id=14579" class="btn btn-block btn-primary text-uppercase"><i class="fab fa-github pr-1"></i>Join with GitHub</a>
+            <a href="https://www.patreon.com/join/cushen/checkout?rid=2987774" class="btn btn-block btn-primary text-uppercase"><i class="fab fa-patreon pr-1"></i>Join with Patreon</a>
+          </div>
+        </div>
+      </div>
+      <!-- $10 Tier -->
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">IMPORTER</h5>
+            <h6 class="card-price text-center">$10<span class="period">/month</span></h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{ safeHTML $str_templates }}</b></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{ safeHTML $str_stickers }}</b></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{ safeHTML $str_pub_import }}</b></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{ safeHTML $str_upgrade_private }}</b></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span><b>{{ safeHTML $str_supporter_list }}</b></li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>{{ safeHTML $str_powered }}</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>{{ safeHTML $str_discord }}</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Community support</li>
+            </ul>
+            <img src="../img/merch/sticker.jpg" alt="Magical Sourcerer stickers">
+            <a href="https://github.com/sponsors/gcushen/sponsorships?sponsor=gcushen&tier_id=14580" class="btn btn-block btn-primary text-uppercase"><i class="fab fa-github pr-1"></i>Join with GitHub</a>
+            <a href="https://www.patreon.com/join/cushen/checkout?rid=2987766" class="btn btn-block btn-primary text-uppercase"><i class="fab fa-patreon pr-1"></i>Join with Patreon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

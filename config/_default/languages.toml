@@ -1,0 +1,14 @@
+# Languages
+#   Create a `[X]` block for each language you want, where X is the language ID.
+#   Refer to https://sourcethemes.com/academic/docs/language/
+
+[en]
+  languageCode = "en-us"
+  contentDir = "content/en"
+
+[zh]
+  languageCode = "zh-Hans"
+  contentDir = "content/zh"
+  title = "TIS"
+  [zh.params]
+    description = "基于Apache Solr具有高性能、高可靠、高扩展性的企业级、一站式搜索中台产品"

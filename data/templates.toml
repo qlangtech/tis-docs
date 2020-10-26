@@ -1,0 +1,20 @@
+[[template]]
+name = "Academic/Resumé Starter"
+desc = "A flexible template to create _any kind_ of website. Comes with a personal academic/resumé site preconfigured."
+demo = "https://academic-demo.netlify.app"
+repo = "https://github.com/wowchemy/starter-academic"
+image = "academic"
+
+[[template]]
+name = "Blog Starter"
+desc = "The Blog Template empowers you to create your own personal blog or build a business around your content."
+demo = "https://hugo-blog-starter.netlify.app"
+repo = "https://github.com/wowchemy/starter-blog"
+image = "blog"
+
+[[template]]
+name = "Book Starter"
+desc = "Document anything: create project documentation for your users, a knowledge base for your team, or a personal notebook for yourself!"
+demo = "https://book-starter.netlify.app"
+repo = "https://github.com/wowchemy/starter-book"
+image = "book"

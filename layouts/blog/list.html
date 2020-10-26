@@ -1,0 +1,18 @@
+{{- define "main" -}}
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap blog">
+    {{ $posts := where (where .Site.Pages "Section" "blog") ".Params.title" "!=" nil }}
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      {{- partial "navs/tags-nav.html" (dict "type" "list" "title" "热门标签" "posts" $posts "rss" "/blog/index.xml" "global" .) -}}
+    </div>
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+      {{- partial "archives/list.html" (dict "posts" $posts.ByDate.Reverse "hasMetaData" "true" "hasBrief" "true" "global" .) -}}
+
+    </main>
+  </div>
+</div>
+
+
+{{- end -}}
+

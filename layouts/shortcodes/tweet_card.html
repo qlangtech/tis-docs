@@ -1,0 +1,26 @@
+{{ $resource_page := "" }}
+{{ if eq .Page.Parent.Type "widget_page" }}
+  {{ $resource_page = $.Page.Parent }}
+{{ else }}
+  {{ $resource_page = $.Page }}
+{{ end }}
+<div class="card">
+  <div class="card-body">
+    <p class="card-text mb-0 pb-1">
+      <span style="font-weight: bold; color: #00d1b2; font-size: 2rem; line-height: 1">&ldquo;</span>
+      {{.Inner}}
+      <span style="font-weight: bold; color: #00d1b2; font-size: 2rem; line-height: 1; position: absolute;">&rdquo;</span>
+    </p>
+    <div>
+      {{ if (.Get "username") }}
+        {{ $image_name := replace (.Get "username") "@" "" }}
+        {{ $image := $resource_page.Resources.GetMatch (printf "**%s.jpg" $image_name) }}
+        {{ with $image }}
+          <img src="{{ .RelPermalink }}" class="rounded-circle mr-1" style="display: inline-block; width: 1rem; height: 1rem">
+        {{end}}
+      {{end}}
+      <a href="{{.Get "link"}}" target="_blank" rel="nofollow noopener" style="font-weight: bold">{{ (.Get "name") }}</a>
+      {{ with (.Get "username") }}<p class="small">{{.}}</p>{{end}}
+    </div>
+  </div>
+</div>

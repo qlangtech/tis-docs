@@ -1,0 +1,22 @@
+---
+# init all hosts
+- name: build hugo site
+  hosts: tis-pub
+  tasks:
+  - shell: 'hugo --minify'
+    args:
+      chdir: "./"
+    delegate_to: "localhost"
+  - name: deploy to remote server
+    synchronize:
+      src: ./public/
+      dest: "/usr/share/tomcat/webapps/ROOT"
+      delete: yes
+  - name: set dir mode
+    file:
+      path: "/usr/share/tomcat/webapps/ROOT"
+      owner: "tomcat"
+      group: "tomcat"
+      mode: '0777'
+      recurse: yes
+

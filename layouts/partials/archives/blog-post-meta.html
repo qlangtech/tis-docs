@@ -1,0 +1,31 @@
+
+<ul class="blog-post-meta">
+  <li class="meta-item">
+    <img src="/images/svgs/icon-date.svg">
+    {{- .Date.Format "2006-01-02" -}}
+  </li>
+  <li class="meta-item">
+    <img src="/images/svgs/icon-writer.svg">
+    {{- if isset .Params "author" -}}
+    {{ $len := len .Params.author }}
+    {{- range $idx, $i := .Params.author -}}
+    {{ . }}
+    {{- if lt $idx (sub $len 1) -}} ,&nbsp; {{- end -}}
+    {{- end -}}
+    {{- else -}}
+    tis
+    {{- end -}}
+  </li>
+  <li class="meta-item">
+    <div>
+      {{- if isset .Params "tags" -}}
+      {{ $len := len .Params.tags }}
+      {{- range $idx, $i := .Params.tags -}}
+      {{- $tag := replace $i " " "-" -}}
+      <a href="#{{ $tag | urlize }}" class="link anchor-tag" data-tag="{{$tag}}">{{ $tag }}</a>
+      {{- if lt $idx (sub $len 1) -}}|{{- end -}}
+      {{- end -}}
+      {{- end -}}
+    </div>
+  </li>
+</ul>

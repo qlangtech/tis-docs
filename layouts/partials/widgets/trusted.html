@@ -1,0 +1,22 @@
+{{ $ := .root }}
+{{ $page := .page }}
+
+
+<div class="row trusted-widget">
+  <div class="col-12 col-lg-4 section-heading">
+    <h1>{{ with $page.Title }}{{ . | markdownify }}{{ end }}</h1>
+    {{ with $page.Params.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+  </div>
+  <div class="col-12 col-lg-8">
+
+    <div class="row text-center" style="margin-top: 2.5rem">
+      {{ $images := .page.Parent.Resources.Match "**.png" }}
+      {{ range $images }}
+        <div class="col-md-2 col-6 d-flex align-items-center justify-content-center">
+          <img class="img-grayscale" src="{{.RelPermalink}}">
+        </div>
+      {{ end }}
+    </div>
+
+  </div>
+</div>

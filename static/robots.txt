@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /posts/
-Allow: /blog/
-Allow: /index.html
