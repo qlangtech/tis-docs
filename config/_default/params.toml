@@ -274,7 +274,7 @@ plugins_js  = []
 ## Marketing
 ############################
 [marketing]
-  google_analytics = "UA-78646709-1"
+ # google_analytics = "UA-78646709-1"
 # https://analytics.google.com/analytics/web/#/a140709779w201684415p195599904/admin/tracking/tracking-code/
  # google_analytics = "UA-140709779-1"
   google_tag_manager = ""

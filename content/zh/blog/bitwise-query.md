@@ -37,7 +37,7 @@ taxonomies:
 并且，需要将service_flag设置为 **bitwise** 类型
 
 ``` xml
-<fieldType name="bitwise" class="com.dfire.tis.solrextend.fieldtype.BitwiseField" 
+<fieldType name="bitwise" class="com.qlangtech.tis.solrextend.fieldtype.BitwiseField" 
      omitNorms="true"  omitTermFreqAndPositions="true" />
 ```
 
