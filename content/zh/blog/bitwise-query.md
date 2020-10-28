@@ -25,9 +25,9 @@ taxonomies:
 
 ## 实现方法
 
-### Schema配置中配置
+### Schema中配置
 
-添加bitwiseBuild标注，为了在全量构建过程中将pickup_flag，delivery_flag，delivery_flag，logistics_flag几个字段合并，需要添加 **bitwiseBuild** 标注项，如下：
+添加bitwiseBuild标注，为了在全量构建过程中将**pickup_flag**，**delivery_flag**，**delivery_flag**，**logistics_flag**几个字段合并，需要添加 **bitwiseBuild** 标注项，如下：
 
 ``` xml
  <!--{bitwiseBuild sourceCols=pickup_flag,delivery_flag,delivery_flag:2,logistics_flag  targetCol=service_flag}-->
@@ -66,3 +66,7 @@ service_flag查询的过滤值是15 对应的二进制是 1111，在加上前面
 > {!lucene q.op=OR}service_flag:15"
 
 **q.op=OR** 时查询表达式的含义为，至少有一个开关项打开就能匹配结果
+
+## 代码
+
+[BitwiseField.java](https://github.com/qlangtech/tis-solr/blob/master/tis-solrcore-extend/src/main/java/com/qlangtech/tis/solrextend/fieldtype/BitwiseField.java)

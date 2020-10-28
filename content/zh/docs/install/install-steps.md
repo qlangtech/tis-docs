@@ -7,6 +7,9 @@ weight : 20
 ---
 
 ## 安装Mysql数据库
+  {{% alert note %}}
+  如果集群中已经安装了Mysql则跳过这一步
+  {{% /alert %}}
  1. 选择一台Mysql数据库服务器
  2. 下载mysql rpm包到本地
     
@@ -86,9 +89,8 @@ weight : 20
     
    |  Key                            |      说明             |  例子  | 必须|
    |----------                       |:-------------         |:------|:------:|
-   |￿git_src                          | tis github地址，当使用release包安装时可以不配置       | https://github.com/qlangtech/tis-solr.git     | N|
-   |git_branch                       | tis github 分支，当使用release包安装时可以不配置   |   master | N|
-   |runtime                          | 系统运行的环境，有 **'daily'**和**'online'**  |    daily    |  Y |
+   |￿git_src                          | tis github地址，`当使用release包安装时可以不配置`       | https://github.com/qlangtech/tis-solr.git     | N|
+   |git_branch                       | tis github 分支，`当使用release包安装时可以不配置`   |   master | N|
    |task_worker_memory               | 任务中心JVM启动分配的堆内存大小 | 400m       | Y |
    |tis_online_repository            | 线上TIS仓库地址           |http://myhost |N|
                 
