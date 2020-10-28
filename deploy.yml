@@ -3,7 +3,7 @@
 - name: build hugo site
   hosts: tis-pub
   tasks:
-  - shell: 'hugo --minify'
+  - shell: 'hugo --minify --environment production'
     args:
       chdir: "./"
     delegate_to: "localhost"
@@ -19,4 +19,9 @@
       group: "tomcat"
       mode: '0777'
       recurse: yes
+  - name: delete local public
+    file:
+      path: ./public/
+      state: absent
+    delegate_to: "localhost"
 
