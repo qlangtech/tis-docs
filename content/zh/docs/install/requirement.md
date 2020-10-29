@@ -15,7 +15,7 @@ linux服务器可以使用以下命令来进行安装:
 ```shell
  yum install ansible
 ```
-当前测试用的服务器上使用的版本为 **2.6.8**
+当前测试用的服务器上使用的版本为 **2.9.6**
 ## TIS Ansible安装脚本获取
 
 Ansible脚本存放在github仓库中 [https://github.com/qlangtech/tis-ansible](https://github.com/qlangtech/tis-ansible)，将脚本clone到本地。
@@ -35,9 +35,6 @@ Ansible脚本存放在github仓库中 [https://github.com/qlangtech/tis-ansible]
 |hadoop-yarn-node-manager|任务调度中心执行者|>=1|8核16G以上|否|
 |zookeeper||建议3|2核4G|否|
 
- {{% callout note %}}
-  以上除了solr节点外其他节点机器不会随着集群的扩展而增加
- {{% /callout %}}
 
  {{% callout note %}}
   如集群内已经部署有hive、spark、zookeeper，则`buildtask-overseer`和`buildtask-worker`不需要安装

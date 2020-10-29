@@ -51,6 +51,12 @@
   url = "../updates/"
   weight = 60
 
+[[main]]
+  pre = "<i class=\"fas fa-user-secret pr-1\" style=\"color: #00d1b2;\"></i>"
+  name = "关于我们"
+  url = "#contact"
+  weight = 70
+
 # Right menu
 
 #[[main_right]]

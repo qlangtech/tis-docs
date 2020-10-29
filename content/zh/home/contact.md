@@ -4,6 +4,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 39  # Order that this section will appear.
 title ="联系我们"
+subtitle = "杭州晴朗网络科技有限公司"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
