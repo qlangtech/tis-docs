@@ -29,7 +29,7 @@ tags: ['qparser']
 ### 具体实现
 
 #### 代码扩展
-需要让随机因子来影响文档排序Socre得分，这里会使用到Solr的[RankQuery](https://lucene.apache.org/solr/8_1_0//solr-core/org/apache/solr/search/RankQuery.html)，简单介绍一下RankQuery：
+需要让随机因子来影响文档排序Socre得分，这里会使用到Solr的[RankQuery]()，简单介绍一下RankQuery：
 
 RankQuery提供了提供了三个扩展方法：
 ```java
@@ -46,7 +46,7 @@ public  class RankQuery extends ExtendedQueryBase {
 
 其中最重要的是`getTopDocsCollector`方法，它可以让用户扩展查询过程中覆写Lucene的Collector收集器（查询过程中所有命中的记录都会执行Collector的回调，记录是否命中和在结果集中的排序先后会由Collector来决定，下面我们来看看如何扩展getTopDocsCollector()方法：
 
-getTopDocsCollector()方法返回的是TopDocsCollector<ScoreDoc>类型，它实现了Lucene的Collector接口，在内部耦合了PriorityQueue优先队列，该优先队列定长队列，Lucene的堆排序使用的最核心的数据结构就是[PriorityQueue](https://lucene.apache.org/core/8_5_1/core/org/apache/lucene/util/PriorityQueue.html)
+getTopDocsCollector()方法返回的是TopDocsCollector<ScoreDoc>类型，它实现了Lucene的Collector接口，在内部耦合了PriorityQueue优先队列，该优先队列定长队列，Lucene的堆排序使用的最核心的数据结构就是[PriorityQueue]()
 ，有新来的记录先和堆的最小值（Socre）比较一下，如果比最小值小的话就直接丢掉，如果比最小值大的话就压入`PriorityQueue`在对内重新调整元素次序
 
 ```java
@@ -75,7 +75,7 @@ private class ShufferCollector extends TopDocsCollector<ScoreDoc> {
   }
 }
 ```
-以上在collect()方法中，覆写了score的得分，此处随机因子是mod，每次更具docid取模，模的大小可以由客户端发送到服务端来，然后再乘上一个权重因子`multi`,覆写完成，测试运行首页记录的次序就会呈现随机性。详细代码请擦看[ShuffleQParserPlugin.java](https://github.com/qlangtech/tis-solr/blob/master/tis-solrcore-extend/src/main/java/com/qlangtech/tis/solrextend/queryparse/ShuffleQParserPlugin.java)
+以上在collect()方法中，覆写了score的得分，此处随机因子是mod，每次更具docid取模，模的大小可以由客户端发送到服务端来，然后再乘上一个权重因子`multi`,覆写完成，测试运行首页记录的次序就会呈现随机性。详细代码请擦看[ShuffleQParserPlugin.java]()
 
 #### SolrConfig配置
 

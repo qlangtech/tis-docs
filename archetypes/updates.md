@@ -9,7 +9,7 @@ linktitle = "{{ replace .Name "-" " " }}"
   weight = 5
 +++
 
-Release Notes tell you what's new in Academic. As always, we welcome your [feedback](https://github.com/gcushen/hugo-academic/issues). You can also [file a bug report](https://github.com/gcushen/hugo-academic/issues). *Want to update to this version?* Refer to the [update guide]({{< relref "../docs/update.md" >}}) in conjunction with the parameter changes mentioned in the [Breaking Changes](#breaking-changes) section below.
+Release Notes tell you what's new in Academic. As always, we welcome your [feedback](). You can also [file a bug report](). *Want to update to this version?* Refer to the [update guide]({{< relref "../docs/update.md" >}}) in conjunction with the parameter changes mentioned in the [Breaking Changes](#breaking-changes) section below.
 
 {{% alert warning %}}
 This page is currently a work in progress. Please check back shortly for the finalized release notes.
@@ -29,6 +29,6 @@ Here are some considerations to make when updating Academic from the previous ve
 
 ## Thank you
 
-Last but certainly not least, a big **_Thank You_** to [all the folks](https://github.com/gcushen/hugo-academic/graphs/contributors) that helped to make Academic even better.
+Last but certainly not least, a big **_Thank You_** to [all the folks]() that helped to make Academic even better.
 
 **Has Academic helped you?** [Consider supporting Academic.]({{< relref "/plans.md" >}})

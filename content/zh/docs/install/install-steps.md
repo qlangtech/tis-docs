@@ -54,7 +54,7 @@ weight : 20
 
 ### 服务器节点配置
 
-   编辑tis-ansible目录下 [inventory/hosts](https://github.com/qlangtech/tis-ansible/blob/master/inventory/hosts)文件，
+   编辑tis-ansible目录下 [inventory/hosts]()文件，
    将准备好的服务器节点配置到hosts文件中
 
  {{% callout warning %}}
@@ -83,7 +83,7 @@ weight : 20
       
 ### 系统配置参数配置 
 
-配置文件[vars.yml](https://github.com/qlangtech/tis-ansible/blob/master/vars.yml)   
+配置文件[vars.yml]()   
     
 1. 其他
     
@@ -132,9 +132,9 @@ Release包（已经deploy到aliyun OSS仓库中）直接在目标服务器上部
  
 ### 基于源码安装 
   
-另外一种是通过Github源代码 [https://github.com/qlangtech/tis-solr](https://github.com/qlangtech/tis-solr)到本地执行编译打包之后自动部署到目标服务器上。
+另外一种是通过Github源代码 [https://github.com/qlangtech/tis-solr]()到本地执行编译打包之后自动部署到目标服务器上。
      
-对应脚本为: [./tis-ansible/deploy-tis-by-compile.yml](https://github.com/qlangtech/tis-ansible/blob/master/deploy-tis-by-compile.yml)
+对应脚本为: [./tis-ansible/deploy-tis-by-compile.yml]()
      
 ```
  cd tis-ansible    

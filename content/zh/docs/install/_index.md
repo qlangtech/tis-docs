@@ -26,4 +26,6 @@ weight: 10
 2. [初始化配置文件]({{< relref "./install-steps.md#初始化配置文件" >}})
 3. [开始安装]({{< relref "./install-steps.md#开始安装" >}})
 
+<iframe height=498 width=510 src='https://player.youku.com/embed/XNDkzODA3MTAyOA==' frameborder=0 'allowfullscreen'></iframe>
+
  

@@ -69,4 +69,4 @@ service_flag查询的过滤值是15 对应的二进制是 1111，在加上前面
 
 ## 代码
 
-[BitwiseField.java](https://github.com/qlangtech/tis-solr/blob/master/tis-solrcore-extend/src/main/java/com/qlangtech/tis/solrextend/fieldtype/BitwiseField.java)
+[BitwiseField.java]()

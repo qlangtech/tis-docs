@@ -80,7 +80,7 @@ TIS通过无缝整合以上三个组件为为上层系统提供稳定的数据�
   
   以维表 Join 为例，数据在业务数据源中以范式表的形式存储，在分析时需要做大量的 Join 操作，降低性能。如果在数据清洗导入过程中就能流式的完成 Join，那么分析时就无需再次 Join，从而提升查询性能。
   
-  TIS完美支持[实时 OLAP 变体架构](https://mp.weixin.qq.com/s/g4N9oXP4eage7wW4yBalSA)
+  TIS完美支持[实时 OLAP 变体架构]()
 
 
 ## 支持各种平台
@@ -89,7 +89,7 @@ TIS通过无缝整合以上三个组件为为上层系统提供稳定的数据�
     
 ## 与ElasticSearcher的区别 
 
- 这是一个经常被用户问起的问题，总体来说TIS和[ElasticSearcher](https://www.elastic.co/)的区别主要在使用场景上。
+ 这是一个经常被用户问起的问题，总体来说TIS和[ElasticSearcher]()的区别主要在使用场景上。
  
  - ElasticSearcher
    

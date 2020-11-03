@@ -46,12 +46,9 @@ hero_media = "rocket.png"
   label = "成功案例"
 
 # Note. An optional note to show underneath the links.
-[cta_note]
-  label = '<a class="js-github-release" href="../updates/" data-repo="qlangtech/tis-solr">最新版本<!-- V --></a>'
+
 +++
 
 **基于SOLR的具有高性能、高可靠、高扩展性的企业级、一站式搜索中台产品**
 
 利用TIS快速为您构建企业级搜索服务
-
-<span style="text-shadow: none;"><a class="github-button" href="https://github.com/qlangtech/tis-solr" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script></span>

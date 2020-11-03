@@ -19,15 +19,15 @@ weight : 40
 
   目前TIS默认支持的数据源为Mysql
 
-- [Canal](https://github.com/alibaba/canal)
+- [Canal]()
   
   兼容Mysql Master-Slaver数据同步协议，负责监听Master节点BinLog数据变更事件的日志。
 
-- [RocketMQ](http://rocketmq.apache.org/) 或者 [kafka](http://kafka.apache.org/)
+- [RocketMQ]() 或者 [kafka]()
   
   将Canal中采集到的数据变更事件的日志数据同步推送到MQ中间件的Producer中，TIS通过监听MQ Topic来获取数据增量更新事件，进行进一步流式计算
   
-- [K8S容器](https://kubernetes.io/)
+- [K8S容器]()
   
   本地环境中需要先启动一个K8S集群，增量通道会以`ReplicationController`方式启动
   
@@ -35,15 +35,15 @@ weight : 40
 
 > 此处以阿里云为例
 
-- [RDS](https://www.aliyun.com/product/rds/mysql?utm_content=se_1006691622)
+- [RDS]()
   
   将MySql包装成RDS服务，用户不需要关心部署等细节服务，且能保证9999的稳定性。
 
-- [DTS](https://www.aliyun.com/product/dts?spm=5176.10695662.796578.3.16995372G7fpIf)
+- [DTS]()
   
   提供监听RDS中数据变更的功能，通过简单配置，用户可以启动Kafka客户端订阅到RDS数据库中变更信息
 
-- [K8S容器服务(ACK)](https://www.aliyun.com/product/kubernetes?spm=5176.10695662.1362501.1.1b2d1b90wWaXVG)
+- [K8S容器服务(ACK)]()
 
   老实说在私有云环境中搭建K8S集群是非常麻烦的一件事儿，不是专业运维同学来搞的话，不折腾一番肯定是搞不定的。幸好，阿里云提供了ACK服务，用户只需要一键开通就能享受便捷且稳定的服务了
   

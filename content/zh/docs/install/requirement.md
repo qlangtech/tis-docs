@@ -9,7 +9,7 @@ weight : 10
 
 ## Ansible安装
 
-Ansible提供了强大的集配置,部署,自动化于一身的playbook [http://www.ansible.com.cn](http://www.ansible.com.cn)
+Ansible提供了强大的集配置,部署,自动化于一身的playbook [http://www.ansible.com.cn]()
 linux服务器可以使用以下命令来进行安装:
 
 ```shell
@@ -18,7 +18,7 @@ linux服务器可以使用以下命令来进行安装:
 当前测试用的服务器上使用的版本为 **2.9.6**
 ## TIS Ansible安装脚本获取
 
-Ansible脚本存放在github仓库中 [https://github.com/qlangtech/tis-ansible](https://github.com/qlangtech/tis-ansible)，将脚本clone到本地。
+Ansible脚本存放在github仓库中 [https://github.com/qlangtech/tis-ansible]()，将脚本clone到本地。
 
 ## 服务器节点清单
 

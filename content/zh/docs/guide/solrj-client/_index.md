@@ -38,7 +38,7 @@ Zk地址：
 
 ## 索引查询说明
 
-这里使用到的查询和solr的查询语法完全一致，详细查询语法请参照[solrwiki](https://lucene.apache.org/solr/guide/8_0/query-syntax-and-parsing.html)
+这里使用到的查询和solr的查询语法完全一致，详细查询语法请参照[solrwiki]()
 
 这里对常用的查询作说明，例如，会对某个实例ID进行过滤：
 
@@ -228,7 +228,7 @@ public void testGroupSearch() throws Exception {
 	}
 }
 ```
-参考：[https://blog.csdn.net/lyf_ldh/article/details/82707401](https://blog.csdn.net/lyf_ldh/article/details/82707401)
+参考：[https://blog.csdn.net/lyf_ldh/article/details/82707401]()
 
 ### 统计查询
 统计// TODO

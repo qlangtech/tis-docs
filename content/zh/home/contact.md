@@ -3,8 +3,8 @@ widget = "blank"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 39  # Order that this section will appear.
-title ="联系我们"
-subtitle = "杭州晴朗网络科技有限公司"
+title ="关于我们"
+subtitle = "杭州晴朗网络科技有限公司是一家专注为客户提供搜索相关支持的技术型公司。TIS是杭州晴朗网络科技有限公司旗下创办的搜索服务中台产品，致力于为中小企业提供一站式的搜索解决方案。目前已服务众多知名技术公司，覆盖零售、金融、餐饮等行业。对于数据量大，稳定性要求苛刻的多种场景下得到验证，并且可以围绕TIS产品为客户提供咨询，培训等服务，更多详情，欢迎拨打咨询热线：15868113480，地址：杭州萧山新塘街道萧绍路455号，享受专属服务！"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -14,7 +14,9 @@ subtitle = "杭州晴朗网络科技有限公司"
   padding = ["100px", "0", "100px", "0"]
    
 +++
-  
+<h2 style="color:#999999">
+联系我们
+</h2>
 <div class="row featurette">
   <div class="col-12 col-sm-6">
     <h3>钉钉讨论群</h3>

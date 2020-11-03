@@ -14,6 +14,6 @@ summary = "“TIS 不管从性能还是高可用性以及可运维性来说，�
 tags = ["Personal"]
 
 # Optional external URL for project (replaces project detail page).
-external_link = "https://www.2dfire.com"
+external_link = "#"
 
 +++
