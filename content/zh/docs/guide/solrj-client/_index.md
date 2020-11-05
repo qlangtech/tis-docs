@@ -23,11 +23,12 @@ TIS是一套集索引结构定义，数据加工与索引查询分析为一体�
 <dependency>
   <groupId>com.qlangtech.tis</groupId>
   <artifactId>tis-solrj-client</artifactId>
-  <version>3.7.17</version>
+  <version>最新版本</version>
 </dependency>
 ```
 
-最新版本请查看：http://nexus.2dfire-dev.com/#nexus-search;quick~tis-solrj
+<a class="js-github-release" href="#" data-repo="qlangtech/tis-solr">最新版本:<!-- V --></a>
+
 ### 客户端初始化
 ```java
 import com.qlangtech.tis.solrj.extend.TisCloudSolrClient;

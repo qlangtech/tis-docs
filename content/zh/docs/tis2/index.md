@@ -39,18 +39,18 @@ weight: 9
 例如：[LUCENE-6825](https://issues.apache.org/jira/browse/LUCENE-6825) 在Lucene中加入了KDTree数据结构，能够优化之前使用空间区间搜索的场景，几乎在同一个发布版本中Solr已经能用到利用这一
 数据结构的PPoint字段类型来替换之前Solr TrieTree来实现的区间查询功能，从而大大提高了查询效率。
 
-那时ElasticSearcher虽然已经面世，但功能还远不成熟，所以压根没有在考虑范范围之内。
+那时Elastic Search虽然已经面世，但功能还远不成熟，所以压根没有在考虑范范围之内。
 
 选择Solr还有一个好处是它是Apache下的一个纯开源项目，不会带有任何商业目的，如果在使用中碰到任何问题可以求助mailList，可以迅速得到来自社区专业解答，这是我们喜欢的特质。
 
 ### Solr落寞了吗？
 
-时间拉回到2020年，这么多年过去了，现在谈及搜索引擎技术就必提[Elastic Searcher](https://www.elastic.co/cn/)，俨然成为行业标准。下图是[百度指数](http://index.baidu.com/v2/main/index.html#/trend/solr?words=solr,elasticsearch)
+时间拉回到2020年，这么多年过去了，现在谈及搜索引擎技术就必提[Elastic Search](https://www.elastic.co/cn/)，俨然成为行业标准。下图是[百度指数](http://index.baidu.com/v2/main/index.html#/trend/solr?words=solr,elasticsearch)
 中ES 和Solr的搜索对比图，很明显Solr处于劣势：
 
 {{< figure src="es-vs-solr.png"  >}}
 
-Solr真的就日落西山了吗？答案是否定的，无可否认，ES([Elastic Searcher](https://www.elastic.co/cn/))在商业上是成功的，他找到了一个使用搜索引擎非常好的切入点，
+Solr真的就日落西山了吗？答案是否定的，无可否认，ES([Elastic Search](https://www.elastic.co/cn/))在商业上是成功的，他找到了一个使用搜索引擎非常好的切入点，
 那就是利用搜索引擎来实现**运维数据的可视化分析**，因为运维数据是天然是时序化的，时序化的数据**只有添加没有更新**，这个特性对搜索引擎来说太友好了，因为这搜索引擎处理更新的数据
 是一件非常操蛋的事儿，搜索引擎内部对数据的操作只支持`添加`和`删除`两种数据操作，一旦有更新操作，会形成大量碎片文件后续会产生一系列问题。
 
@@ -64,7 +64,7 @@ ES由于他的业务特性巧妙地规避了这些技术难题，再加上logsta
 ## 涅槃
 
 TIS立项之初的使命非常明确：
->TIS使命：构建一站式企业应用搜索中台产品，让开发工程师像使用数据库一样使用搜索引擎
+>TIS使命：构建一站式企业搜索中台产品，让开发工程师像使用数据库一样使用搜索引擎
 
 花了12个月的时间终于把新版本搞出来了，TIS2.0是在1.0版本上重新开发，将离线、实时、引擎部分进行无缝对接，使其可用性大大提高，可以通过TIS控制台对搜索实例
 进行全生命周期维护。

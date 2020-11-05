@@ -41,7 +41,8 @@ weight : 20
  6. 安装完成之后需要对mysql进行配置，可以远端通过用户名密码登录
     
     1. vim /etc/my.cnf，在[mysqld]下添加skip-grant-tables 属性,然后重启
-    2. 通过`mysql`命令登录数据库，执行：
+    2. 启动mysql，执行：service mysqld start
+    3. 通过`mysql`命令登录数据库，执行：
     
        ``` sql
        update mysql.user set host='%' where user="root";
@@ -109,23 +110,20 @@ weight : 20
 
 ### 基于Release包安装
   
-Release包（已经deploy到aliyun OSS仓库中）直接在目标服务器上部署安装。
+Release包（已经deploy到aliyun OSS仓库中）直接在目标服务器上部署安装
     
   对应的脚本为: ./tis-ansible/deploy-tis-by-release.yml
     
-以该种模式例执行需要分为三步：
-1. 安装tis-console
-   ``` shell
-   cd tis-ansible
-   ansible-playbook ./deploy-tis-by-release.yml --tags initos,zk,tjs -i ./inventory/hosts
-   ```
-        
-2. 继续安装assemble 等其他组件
-       
-   ``` shell
-    cd tis-ansible    
-    ansible-playbook ./deploy-tis-by-release.yml --tags initos,hadoop,spark,assemble,indexbuilder,solr -i ./inventory/hosts
-   ``` 
+Ansible脚本为: [deploy-tis-by-release.yml](https://github.com/qlangtech/tis-ansible/blob/master/deploy-tis-by-release.yml)
+
+安装TIS
+``` shell
+cd tis-ansible
+ansible-playbook ./deploy-tis-by-release.yml --tags=initos,zk,hadoop,spark,tjs,assemble,indexbuilder,solr -i ./inventory/hosts
+```
+
+ > `注意`：如果在本地环境中zookeeper、hadoop或者spark已经安装，则**tags**标签中zk,hadoop,spark可以去掉
+
  {{% callout note %}}
  初始用户建议使用***基于Release包安装***
  {{% /callout %}}
