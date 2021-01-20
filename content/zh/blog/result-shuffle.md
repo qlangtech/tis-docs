@@ -75,7 +75,8 @@ private class ShufferCollector extends TopDocsCollector<ScoreDoc> {
   }
 }
 ```
-以上在collect()方法中，覆写了score的得分，此处随机因子是mod，每次更具docid取模，模的大小可以由客户端发送到服务端来，然后再乘上一个权重因子`multi`,覆写完成，测试运行首页记录的次序就会呈现随机性。详细代码请擦看[ShuffleQParserPlugin.java](https://github.com/qlangtech/tis-solr/blob/master/tis-solrcore-extend/src/main/java/com/qlangtech/tis/solrextend/queryparse/ShuffleQParserPlugin.java)
+以上在collect()方法中，覆写了score的得分，此处随机因子是mod，每次更具docid取模，模的大小可以由客户端发送到服务端来，然后再乘上一个权重因子`multi`,覆写完成，测试运行首页记录的次序就会呈现随机性。
+详细代码请查看[ShuffleQParserPlugin.java](https://github.com/qlangtech/tis-solr/blob/master/tis-solrcore-extend/src/main/java/com/qlangtech/tis/solrextend/queryparse/ShuffleQParserPlugin.java)
 
 #### SolrConfig配置
 
