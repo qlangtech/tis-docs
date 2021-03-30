@@ -8,22 +8,14 @@ type: book
 weight: 10
 ---
 
-## 前言
+TIS安装包分为两种模式:
 
- 由于TIS在分布式环境中有多个组件(Console、Assemble、Taskcenter、SolrCore)需要安装。为了简化安装过程，使用了Ansible进行组件安装，执行Ansible脚本前，先初始化配置文件，最后一键触发Ansible Playbook就能快速完成安装过程。
-
-## 环境准备
-
-1. [Ansible安装]({{< relref "./requirement.md#ansible安装" >}})
-2. [TIS Ansible安装脚本获取]({{< relref "./requirement.md#tis-ansible安装脚本获取" >}})
-3. [服务器节点准备]({{< relref "./requirement.md#服务器节点准备" >}})
-4. [Ansible堡垒节点与服务节点免密码登录]({{< relref "./requirement.md#Ansible堡垒节点与服务节点免密码登录" >}} )
-
-
-## 安装步骤
-
-1. [Mysql数据库安装]({{< relref "./install-steps.md#mysql数据库服务安装" >}})
-2. [初始化配置文件]({{< relref "./install-steps.md#初始化配置文件" >}})
-3. [开始安装]({{< relref "./install-steps.md#开始安装" >}})
+1. 单机安装版
+   
+   已经将TIS运行时依赖的所有组件，Zookeeper、数据库、Solr节点、任务协调器等都打包在一个tar包中，适合用户初次试用及开发环境开始测试之用。[安装]({{< relref "./uber" >}})
+   
+2. 分布式集群安装版
+   
+   生产环境中将各个组件分布式安装在集群各个节点中，从而大大提高系统稳定性及并发吞吐能力。[安装]({{< relref "./multi-nodes" >}})
 
  
