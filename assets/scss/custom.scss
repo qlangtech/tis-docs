@@ -1,8 +1,23 @@
 /* Override margins for figures. */
 /* baisui modify */
+
 .docs-article-container {
-  max-width: 900px;
+  max-width: 1000px;
 }
+
+.docs-article-container h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.article-style h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #30323e;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
 .article-container {
   max-width: 900px;
   padding: 0 20px 0 20px;
@@ -95,7 +110,7 @@ div.alert-thanks {
 .pricing .card {
   border: 4px transparent solid;
   transition: all 0.2s;
-  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .12);
 }
 
 .pricing hr {
@@ -186,7 +201,7 @@ div.alert-thanks {
 }
 
 .tpl-image-container {
-  box-shadow: 0 6px 20px 0 rgba(0,0,0,.08);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, .08);
   margin-bottom: 22px;
   position: relative;
   background-color: #fff;

@@ -457,7 +457,7 @@
 }
 
 .blog .archive h1,.blog .archive h2,.blog .archive h3,.blog .archive h4,.blog .list h1,.blog .list h2,.blog .list h3,.blog .list h4,.doc .archive h1,.doc .archive h2,.doc .archive h3,.doc .archive h4,.doc .list h1,.doc .list h2,.doc .list h3,.doc .list h4,.meetup .archive h1,.meetup .archive h2,.meetup .archive h3,.meetup .archive h4,.meetup .list h1,.meetup .list h2,.meetup .list h3,.meetup .list h4,.recruit-single .archive h1,.recruit-single .archive h2,.recruit-single .archive h3,.recruit-single .archive h4,.recruit-single .list h1,.recruit-single .list h2,.recruit-single .list h3,.recruit-single .list h4,.weekly .archive h1,.weekly .archive h2,.weekly .archive h3,.weekly .archive h4,.weekly .list h1,.weekly .list h2,.weekly .list h3,.weekly .list h4 {
-  font-weight: 400;
+  font-weight: 600;
   color: #142848
 }
 
@@ -830,7 +830,7 @@
 }
 
 @media print {
-@   page {
+ @page {
   size: A4 portrait;
   margin: 3.7cm 2.6cm 3.5cm
 }
