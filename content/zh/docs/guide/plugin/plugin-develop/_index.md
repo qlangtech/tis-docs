@@ -46,7 +46,19 @@ public class DataxMySQLReader extends DataxReader {
     ],
     "creator": {
       "routerLink": "/base/departmentlist",
-      "label": "部门管理"
+      "label": "部门管理" ,
+      "plugin-parent": {
+        "hetero": "datasource",
+        "extraParam": "type_detailed,update_false,disableBizStore_true"
+      },
+      "plugin": [
+        {
+          "descName": "MySQL-V5"
+        },
+        {
+          "descName": "MySQL-V8"
+        }
+      ]
     }
   }
 }
@@ -60,8 +72,23 @@ public class DataxMySQLReader extends DataxReader {
 |dftVal|字段对应的默认值，字段类型根据表单控件类型而定</div>|"dftVal": false|no|
 |rows|<div style="width: 250pt">@FormField对应的type类型为`TEXTAREA`可以使用rows来控制textare控件在表单中默认行数</div>|"rows": 5|no|
 |enum|<div style="width: 250pt">@FormField对应的type类型为`ENUM`可以使用enum来描述输入的枚举值，类型是一个array的元祖结构，或通过groovy脚本取得类型为`com.qlangtech.tis.manage.common.Option`的列表对象</div>|||
-|creator||||
+|creator|配置Plugin录入页面,field空间右侧辅助输入按钮行为|||
 |disable|使得该属性在表单中隐去|||
+
+### `creator`说明
+
+  子属性说明：
+  * routerLink
+  * label
+  * plugin 
+    
+    是一个array属性，主属性支持多种plugin类型的输入`descName`为Plugin的displayName，`hetero`为plugin的的类型，`extraParam`为插件提交的辅助参数控制插件表单提交服务端处理的行为逻辑，以上三个属性为必须输入属性
+    
+  * 'plugin'-parent
+    
+    对于所有plugin子配置提供基础扩展属性，有效提高配置的可读性，可配置属性为`descName`，`hetero`，`extraParam` 三个
+    
+  
 
 
 
