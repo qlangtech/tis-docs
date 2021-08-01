@@ -33,6 +33,9 @@ public class DataxMySQLReader extends DataxReader {
     "helpUrl": "http://tis.pub/docs/guide/datasource/multi-ds-rule",
     "dftVal": false,
     "rows": 5,
+    "help": "无特殊情况请不要修改模版内容，避免不必要的错误",
+    "style": "codemirror",
+    "mode": "application/ld+json",
     "disable": true,
     "enum": [
       {
@@ -71,9 +74,13 @@ public class DataxMySQLReader extends DataxReader {
 |helpUrl|<div style="width: 250pt">字段对应的帮助说明文档链接</div>|"helpUrl": "http://tis.pub/docs/guide/datasource/multi-ds-rule"|no|
 |dftVal|字段对应的默认值，字段类型根据表单控件类型而定</div>|"dftVal": false|no|
 |rows|<div style="width: 250pt">@FormField对应的type类型为`TEXTAREA`可以使用rows来控制textare控件在表单中默认行数</div>|"rows": 5|no|
+|style|当@FormField( type = FormFieldType.TEXTAREA)标示 plugin属性为textarea类型的控件时，为了提高控件输入可读性，可使用codemirror来对控件内容进行高亮处理，必须使用值为**codemirror**|||
+|mode|当style为**codemirror**，可使用`mode`值来设置codemirrir的高亮语法，可选择："text/yaml"，"application/ld+json"，"application/xml"，"text/x-sql"，"text/x-groovy"，"text/x-scala"等|||
 |enum|<div style="width: 250pt">@FormField对应的type类型为`ENUM`可以使用enum来描述输入的枚举值，类型是一个array的元祖结构，或通过groovy脚本取得类型为`com.qlangtech.tis.manage.common.Option`的列表对象</div>|||
 |creator|配置Plugin录入页面,field空间右侧辅助输入按钮行为|||
 |disable|使得该属性在表单中隐去|||
+|help|使用该属性在表单中对表单的录入字段进行说明|||
+
 
 ### `creator`说明
 

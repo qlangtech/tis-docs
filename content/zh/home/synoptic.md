@@ -2,9 +2,9 @@
 
 
 widget = "blank"
-headless = true
+headless = false
 active = true
-weight = 30
+weight = 21
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.

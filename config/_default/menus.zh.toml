@@ -87,5 +87,5 @@
   pre = "<span class=\"btn btn-primary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3\" style=\"padding: 0.3rem;\">"
   name = "开始创建"
   post = "</span>"
-  url = "../docs/install/"
+  url = "../docs/install/uber/"
   weight = 50

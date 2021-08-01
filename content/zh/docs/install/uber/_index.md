@@ -46,6 +46,10 @@ weight: 9
    ```shell script
    ./bin/tis.sh start
    ```
+   终止TIS进程
+   ```shell script
+   ./bin/tis.sh stop
+   ```
    
 4. 进入TIS管理控制台，[http://127.0.0.1:8080](http://127.0.0.1:8080)
    

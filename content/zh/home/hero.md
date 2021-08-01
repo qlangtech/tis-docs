@@ -36,7 +36,7 @@ hero_media = "rocket.png"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
-  url = "../docs/install/"
+  url = "../docs/install/uber"
   label = "开始创建"
   icon_pack = "fas"
   icon = "rocket"
@@ -50,9 +50,9 @@ hero_media = "rocket.png"
   label = '<a class="js-github-release" href="../updates/" data-repo="qlangtech/tis-solr">最新版本<!-- V --></a>'
 +++
 
-**基于SOLR的具有高性能、高可靠、高扩展性的企业级、一站式搜索中台产品**
+**基于DataX，提供简单易用的 操作界面，降低用户使用DataX的学习成本，缩短任务配置时间，避免配置过程中出错，使数据抽取变得简单、易用**
 
-利用TIS快速为您构建企业级搜索服务 
+利用TIS快速为您构建企业级数仓库服务 
 
 <i class="fas fa-film pr-1" aria-hidden="true"></i>[TIS介绍]({{<relref "/docs/#视频">}}) <i class="fas fa-film pr-1" aria-hidden="true"></i>[操作实例]({{<relref "/docs/guide/#操作视频">}})
 
