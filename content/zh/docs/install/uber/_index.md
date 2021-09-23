@@ -25,34 +25,50 @@ weight: 9
 
 ## 安装
 
-1. 下载
+> [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;安装示例](https://www.bilibili.com/video/BV18q4y1p73B/)
 
-   ```shell script
-    wget http://mirror.qlangtech.com/2.3.0/tis/tis-uber.tar.gz
-   ```
 
-2. 解压
-   ```shell script
-     tar xvf tis-uber.tar.gz -C ./
-   ```
+
+<div class="row ">
+  <div class="col-14 col-sm-8">
+  
+  1. 下载
+  
+     ```shell script
+      wget http://mirror.qlangtech.com/3.0.0/tis/tis-uber.tar.gz
+     ```
+  
+  2. 解压
+     ```shell script
+       tar xvf tis-uber.tar.gz -C ./
+     ```
+     
+  3. 启动
+     
+     进入目录 
+     ```shell script
+     cd tis-uber
+     ```
+     执行shell启动
+     ```shell script
+     ./bin/tis.sh start
+     ```
+     终止TIS进程
+     ```shell script
+     ./bin/tis.sh stop
+     ```   
+  4. 进入TIS管理控制台，[http://127.0.0.1:8080](http://127.0.0.1:8080)  
    
-3. 启动
-   
-   进入目录 
-   ```shell script
-   cd tis-uber
-   ```
-   执行shell启动
-   ```shell script
-   ./bin/tis.sh start
-   ```
-   终止TIS进程
-   ```shell script
-   ./bin/tis.sh stop
-   ```
-   
-4. 进入TIS管理控制台，[http://127.0.0.1:8080](http://127.0.0.1:8080)
-   
+  </div>
+  <div class="col-10 col-sm-4 featurette">
+   <h3>钉钉讨论群</h3>
+      <h4>使用过程中有任何问题请随时联系我们</h4>
+      <center><img src="/img/tis/dingding_talk_group.jpeg" width="250"></center>
+  </div>
+</div>
+
+
+    
 
 ## 操作说明
 

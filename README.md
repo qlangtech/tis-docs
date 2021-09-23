@@ -7,7 +7,7 @@ Make use of [Academic](https://wowchemy.com/)
 execute the shell script:
 
 ```bash
-
+ hugo mod clean --all
  sh ./update_remote.sh
 
 ```

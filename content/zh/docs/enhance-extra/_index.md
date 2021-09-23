@@ -7,13 +7,27 @@ date: 2021-03-30
 weight: 9
 ---
 ## 数据抽取(Extraction)架构
-TIS的愿景是实现企业大数据ETL(Extraction-Transformation-Loading)全覆盖的中台产品，数据抽取（Extraction）是大数据处理所有环节中的第一步，也是最重要的环节。最新版本的TIS数据抽取组件是基于[Alibaba DataX](https://github.com/alibaba/DataX)实现的
+TIS的愿景是实现企业大数据ETL(Extraction-Transformation-Loading)全覆盖的中台产品，数据抽取（Extraction）是大数据处理所有环节中的第一步，也是最重要的环节。最新版本的TIS数据抽取组件是基于[Alibaba DataX](https://github.com/alibaba/DataX)实现的，
+并且在原生DataX之上添加了[功能特性]({{< relref "./#i-classfa-fa-eercast-aria-hiddentruei%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7" >}} )大大提交了DataX的可用性
 
-{{< figure src="tis-datax-arch.png"  >}}
+## 视频示例
 
-## 安装
 
-TIS安装，[请查看>>]({{< relref "../install/uber" >}})
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;启用分布式执行功能](https://www.bilibili.com/video/BV1Cq4y1D7z4?share_source=copy_web)
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入ElasticSearch](https://www.bilibili.com/video/BV1G64y1B7wm?share_source=copy_web)
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入Hive](https://www.bilibili.com/video/BV1Vb4y1z7DN?share_source=copy_web)
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入Clickhouse](https://www.bilibili.com/video/BV1x64y1B7V8/)
+
+## TIS安装
+
+* [<i class="fa fa-download" aria-hidden="true"></i>安装指南]({{< relref "../install/uber" >}})
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;安装示例](https://www.bilibili.com/video/BV18q4y1p73B/)
+
+{{< figure src="/img/tis/tis-synoptic.png"  >}}
+
+
+
+
 
 ## <i class="fa fa-eercast" aria-hidden="true"></i>功能特性
 
@@ -59,17 +73,39 @@ TIS安装，[请查看>>]({{< relref "../install/uber" >}})
   原生DataX部署方案要求，需要在本地环境中支持Python运行环境[DataX UserGuid](https://github.com/alibaba/DataX/blob/master/userGuid.md)，根据以往经验，Python运行环境的各种问题，**常常导致DataX脚本无法正常执行**，其实Python只是起到了DataX命令行参数的传递的作用。
   所以在TIS的DataX整合方案中已经将Pyhton环境部署的环节去除掉了，这样一来提高了DataX运行稳定性。
 
+## 功能一瞥 
+
+选择Reader/Writer插件类型
+{{< figure src="datax-add-step2.png"  >}}
+
+添加MySqlReader
+{{< figure src="add-mysql-reader.png"  >}}
+
+设置MySqlReader目标表、列  
+{{< figure src="select-tab-cols.png"  >}}   
+
+添加ElasticWriter,可视化设置ElasticSearch的Schema Mapping
+{{< figure src="add-elastic-writer.png"  >}}
+
+执行MySql->ElasticSearch DataX实例，运行状态 
+{{< figure src="datax-exec-status.png"  >}}
+
+执行MySql->ElasticSearch 执行成功
+{{< figure src="datax-exec-success.png"  >}}      
+
 ## <i class="fa fa-eercast" aria-hidden="true"></i>TIS支持的DataX（Reader/Writer）Plugin
 
-| 类型           | <div style="width:250px">数据源</div>        | <div style="width:100px">Reader(读)</div> | <div style="width:100px">Writer(写)</div> |
-| ------------ | ---------- | :--------: | :-------: |
+
+| 类型           | <div style="width:200px">数据源</div>        | <div style="width:100px">Reader(读)</div> | <div style="width:100px">Writer(写)</div> |
+| ------------ | ---------- | :--------: | :------- |
 | RDBMS 关系型数据库 | MySQL      |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
 |              | Oracle     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
 |              | SQLServer  |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
 |              | PostgreSQL |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
 |              | DRDS |         |          |
 |              | TiDB |     <i class="fa fa-check-circle" aria-hidden="true"></i>      |         |
-|              | ClickHouse |           |    <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | ClickHouse |           |    <i class="fa fa-check-circle" aria-hidden="true"></i>  [<i class="fa fa-film" aria-hidden="true"></i>](https://www.bilibili.com/video/BV1x64y1B7V8/)   |
+|              | Doris/StarRocks |           |    <i class="fa fa-check-circle" aria-hidden="true"></i>    |
 | 阿里云数仓数据存储    | ODPS       |          |          |
 |              | ADS        |           |          |
 |              | OSS        |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>    |
@@ -79,12 +115,24 @@ TIS安装，[请查看>>]({{< relref "../install/uber" >}})
 |              | Phoenix4.x   |          |          |
 |              | Phoenix5.x   |         |          |
 |              | MongoDB    |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
-|              | Hive        |          |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | Hive        |          |     <i class="fa fa-check-circle" aria-hidden="true"></i> [<i class="fa fa-film" aria-hidden="true"></i>](https://www.bilibili.com/video/BV1Vb4y1z7DN?share_source=copy_web)    |
 |              | Spark       |          |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
 |              | Cassandra       |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
 | 无结构化数据存储     | TxtFile    |         |          |
 |              | FTP        |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
 |              | HDFS       |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
-|              | Elasticsearch       |         |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | Elasticsearch       |         |     <i class="fa fa-check-circle" aria-hidden="true"></i> [<i class="fa fa-film" aria-hidden="true"></i>](https://www.bilibili.com/video/BV1G64y1B7wm?share_source=copy_web)     |
 | 时间序列数据库 | OpenTSDB |  |  |
 |  | TSDB |  |  |
+
+## 联系我们
+
+<div class="row featurette">
+  <div class="col-12 col-sm-6">
+    <h3>钉钉讨论群</h3>
+    <h4>使用过程中有任何问题请随时联系我们</h4>
+    <center><img src="/img/tis/dingding_talk_group.jpeg" width="250"></center>
+  </div>
+  <div class="col-12 col-sm-6">
+  </div>
+</div>

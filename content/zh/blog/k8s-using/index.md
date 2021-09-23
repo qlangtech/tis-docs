@@ -5,6 +5,8 @@ type: blog
 ---
 ## 安装
 
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;启用分布式执行功能](https://www.bilibili.com/video/BV1Cq4y1D7z4?share_source=copy_web)
+
 ### 公有云
 如在公有云中，用户可以使用基于云平台的容器引擎服务，国内知名云服务厂商有：
 
