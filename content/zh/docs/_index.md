@@ -1,112 +1,139 @@
 ---
-title: TIS介绍
-date: 2016-04-20
+title: 基于DataX和Flink-CDC的DataOps数据同步中台TIS
+linktitle: DataOps数据同步中台TIS
 type: book
+icon_pack: fas
+icon: flag-checkered
+date: 2021-03-30
+weight: 9
 ---
+## 数据抽取(Extraction)架构
+TIS的愿景是实现企业大数据ETL(Extraction-Transformation-Loading)全覆盖的中台产品，数据抽取（Extraction）是大数据处理所有环节中的第一步，也是最重要的环节。最新版本的TIS数据抽取组件是基于[Alibaba DataX](https://github.com/alibaba/DataX)实现的，
+并且在原生DataX之上添加了[功能特性]({{< relref "./#i-classfa-fa-eercast-aria-hiddentruei%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7" >}} )大大提交了DataX的可用性
 
-![](/img/tis/tis-vision.jpg)
+## 视频示例
 
-## 视频
 
-<iframe src="//player.bilibili.com/player.html?aid=800140762&bvid=BV11y4y1B7Mk&cid=252739812&page=1" scrolling="no" border="1" frameborder="yes" framespacing="0" allowfullscreen="true"> </iframe>
-<a target="_blank" href="https://www.bilibili.com/video/BV11y4y1B7Mk/">全屏</a>
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;启用分布式执行功能](https://www.bilibili.com/video/BV1Cq4y1D7z4?share_source=copy_web)
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入ElasticSearch](https://www.bilibili.com/video/BV1G64y1B7wm?share_source=copy_web)
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入Hive](https://www.bilibili.com/video/BV1Vb4y1z7DN?share_source=copy_web)
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入Clickhouse](https://www.bilibili.com/video/BV1x64y1B7V8/)
 
-## TIS的前世今生 
+## TIS安装
 
-[阅读]({{< relref "./tis2">}})
+* [<i class="fa fa-download" aria-hidden="true"></i>安装指南]({{< relref "./install/uber" >}})
+* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;安装示例](https://www.bilibili.com/video/BV18q4y1p73B/)
 
-## 功能介绍
+{{< figure src="/img/tis/tis-synoptic.png"  >}}
 
-  TIS平台是一套为企业级用户提供大数据多维、实时、查询的搜索中台产品。用户可以在TIS上自助快速构建搜索服务，它大大降低了搜索技术的门槛。
+
+
+
+
+## <i class="fa fa-eercast" aria-hidden="true"></i>功能特性
+
+### <i class="fa fa-star" aria-hidden="true"></i>基于Web UI的开箱即用
+
+  TIS基于[ng-zorro-antd](https://ng.ant.design/docs/introduce/zh) UI组件开发了一套覆盖DataX 任务定义、执行、更新等生命周期的流程实现，让用户轻松点击鼠标，让各种类型的数据在个端之间畅通无阻。
   
-  平台分为三个子模块，分别是：
-- 搜索引擎
+  系统中提供了各种校验及错误提示机制，让用户不需要直接编辑DataX JSON格式的脚本，而是，TIS系统自动生成DataX JSON配置脚本。因此，大大避免了原生DataX配置目繁杂带来的不必要的错误。
 
-  目前支持Solr
-- 离线数仓
-
-  目前支持Hive或者Spark两种计算引擎
-- 流式实时同步组件
-
-  目前使用了自研流式计算引擎实现高效数据近实时同步
-
-TIS通过无缝整合以上三个组件为为上层系统提供稳定的数据搜索服务
-
-![](/img/tis/tis-niaohan.png)
-
-## 功能特性
-
-离线数仓负责索引实例全量数据构建，将关系数据库中的ER实体按照要求打平成为一张宽表导入搜索引擎（这部分底层可以TIS的插件机制方便地切换各种成熟的MR中间件，例如：Spark、Hive、阿里云MaxComputer）
-
-增量流处理可以监听数据库（例如：MySql binLog）对增量小心进行处理，保证数据源中的数据与Solr集群中的搜索实例数据保持一致。TIS就像一个容器把`离线数仓`，`搜索引擎`，`流式处理`这三部分包裹在一起，
-将他们之间复杂的流程调度和数据流转对外界来说是无感知的，用户只需要通过点击鼠标就能对索引实例进行生命周期管理。
-
-具体来说有以下特性：
-
-### 一站式开箱即用
-
-一旦TIS安装完成之后，用户就可以轻松在TIS平台上对索引实例进行，创建、数据结构(Schema)更新，数据刷新操作、以及最终的删除等操作。
-
-使用过程中，如果现有构建无法满足现有需求，可以通过插件，方便扩展新功能来满足需求。
-
-### 批流统一
-
-通过配置一个数据流规则，可以自动生成全量数据构建(批处理)和增量管道(流处理)脚本，且能自动部署，大幅提交工作效率。
-
-### 灵活、好用扩展机制
-
-基于UI的插件机制，方便扩展Solr、Lucene的底层功能扩展点。适应私有云，公有云、混合云环境。
-
-### 一键安装
-
-利用ansible实现分布式环境中一键安装、更新等操作
-
-## 适用场景
-
-- 数据库加速
+### <i class="fa fa-star" aria-hidden="true"></i>支持分布式任务分发
   
-  几乎所有成熟的关系型数据库中都有'视图'，在单机版小数量规模的应用中'视图'的确是解决OlAP问题的利器，但是在大数据海量数据的场景下，'视图'已经成为了看起来很美好，用起来很鸡肋的东西。所以，在生产环境中会用缓存技术（例如：Redis），来解决OlAP低延时请求响应的问题。但，缓存技术也有其限制，例如，只能支持Key-Value的查询等等。
-  现在，可以使用TIS来弥补'数据库视图'和'缓存技术'的短板，轻松利用搜索来实现大数据OLAP的低延时数据访问的痛点问题。
-
-- 优化分库分表
-
-  数据库(例如：mysql)为了支持大数据量，会采用分库分表的部署方案。客户端查询，会以之前约定好的路由方式，将查询路由到某一特定分库分表上。但业务需求经常会需要查询进行跨库跨表进行查询，这对分库分表的架构提出了不小的挑战。
- 
-  可以将关系数据库中数据导入到TIS中，将原跨库跨表的数据库访问重路由到TIS，可以进行大并发低延时的查询。
-
-- 企业级应用搜索
+  原生开源版DataX解决方案是单机执行的，由于单节点执行任务吞吐量的限制，需要对DataX进行二次开发才能在生产环境中部署。
   
-  例如：O2O基于经纬度的地理查询、会员营销CRM，会员画像查询、供应链业务线OLAP低延时查询、后台订单业务线查询、商品中心sku-spu NEST嵌套结构查询、
-  店铺实体查询。
+  TIS支持`单节点`和`分布式`两种任务执行模式。`分布式`模式基于ZK的Curator分布式任务队列实现Master-Slaver模式，由K8S容器中的Slaver节点来消费任务。
+
+
+### <i class="fa fa-star" aria-hidden="true"></i>全新的基于微内核的运行环境
   
-- 企业级实时数仓
-
-  企业为了实现OLAP实时报表需要构建实时数据仓库。
+  按照[DataX UserGuid](https://github.com/alibaba/DataX/blob/master/userGuid.md)介绍，为了运行DataX需要在本地部署多个组件，对于普通小白用户来说有一定门槛。
   
-  以维表 Join 为例，数据在业务数据源中以范式表的形式存储，在分析时需要做大量的 Join 操作，降低性能。如果在数据清洗导入过程中就能流式的完成 Join，那么分析时就无需再次 Join，从而提升查询性能。
+  TIS采用微内核的架构设计，参照Jenkins的插件架构体系，初始安装包只有300兆。运行时根据需要，在控制台中轻点鼠标，动态加载具体的DataX Plugin(Reader/Writer)。
   
-  TIS完美支持[实时 OLAP 变体架构](https://mp.weixin.qq.com/s/g4N9oXP4eage7wW4yBalSA)
+  对于企业级大数据中台产品内部会有非常多的组件，但是用户只会用到部分组件，采用微内核按需加载的方式会带来非常多的好处。
+  
+  
+### <i class="fa fa-star" aria-hidden="true"></i>功能覆盖DataX大部分（Reader/Writer）Plugin
+
+- 最新版本已经支持了DataX官方大部分核心Reader/Writer插件，其他插件将会在后续版本中添加。
+- 新版本额外添加了对TiDB Reader Plugin支持
+
+### <i class="fa fa-star" aria-hidden="true"></i>重构DataX的Classloader
+
+重构DataX默认ClassLoader`com.alibaba.datax.core.util.container.JarLoader`，对其功能嫁接到了TIS的`com.qlangtech.tis.datax.TISJarLoader`之上，实现了基于TIS平台可视化的插件加载机制，提升了用户体验。
+
+### <i class="fa fa-star" aria-hidden="true"></i>支持RDBMS类型的Writer自动生成目标表
+
+  部分RDMS类型的Writer数据源如MySQL，Clickhouse等系统实现了通过反射Reader数据源的Meta信息，自动生成Writer Plugin对应的目标数据表，免去了手动创建Writer目标表的DDL语句。
+  
+  支持`Hive`，`Spark`表自动创建，自动添加Partition(基于日期的)
+
+### <i class="fa fa-star" aria-hidden="true"></i>简化DataX部署方式：
+  
+  原生DataX部署方案要求，需要在本地环境中支持Python运行环境[DataX UserGuid](https://github.com/alibaba/DataX/blob/master/userGuid.md)，根据以往经验，Python运行环境的各种问题，**常常导致DataX脚本无法正常执行**，其实Python只是起到了DataX命令行参数的传递的作用。
+  所以在TIS的DataX整合方案中已经将Pyhton环境部署的环节去除掉了，这样一来提高了DataX运行稳定性。
+
+## 功能一瞥 
+
+选择Reader/Writer插件类型
+{{< figure src="enhance-extra/datax-add-step2.png"  >}}
+
+添加MySqlReader
+{{< figure src="enhance-extra/add-mysql-reader.png"  >}}
+
+设置MySqlReader目标表、列  
+{{< figure src="enhance-extra/select-tab-cols.png"  >}}   
+
+添加ElasticWriter,可视化设置ElasticSearch的Schema Mapping
+{{< figure src="enhance-extra/add-elastic-writer.png"  >}}
+
+执行MySql->ElasticSearch DataX实例，运行状态 
+{{< figure src="enhance-extra/datax-exec-status.png"  >}}
+
+执行MySql->ElasticSearch 执行成功
+{{< figure src="enhance-extra/datax-exec-success.png"  >}}      
+
+## <i class="fa fa-eercast" aria-hidden="true"></i>TIS支持的DataX（Reader/Writer）Plugin
 
 
-## 支持各种平台
+| 类型           | <div style="width:200px">数据源</div>        | <div style="width:100px">Reader(读)</div> | <div style="width:100px">Writer(写)</div> |
+| ------------ | ---------- | :--------: | :------- |
+| RDBMS 关系型数据库 | MySQL      |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | Oracle     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | SQLServer  |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | PostgreSQL |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | DRDS |         |          |
+|              | TiDB |     <i class="fa fa-check-circle" aria-hidden="true"></i>      |         |
+|              | ClickHouse |           |    <i class="fa fa-check-circle" aria-hidden="true"></i>  [<i class="fa fa-film" aria-hidden="true"></i>](https://www.bilibili.com/video/BV1x64y1B7V8/)   |
+|              | Doris/StarRocks |           |    <i class="fa fa-check-circle" aria-hidden="true"></i>    |
+| 阿里云数仓数据存储    | ODPS       |          |          |
+|              | ADS        |           |          |
+|              | OSS        |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>    |
+| NoSQL数据存储    | OTS        |          |          |
+|              | Hbase0.94  |          |          |
+|              | Hbase1.1   |          |          |
+|              | Phoenix4.x   |          |          |
+|              | Phoenix5.x   |         |          |
+|              | MongoDB    |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | Hive        |          |     <i class="fa fa-check-circle" aria-hidden="true"></i> [<i class="fa fa-film" aria-hidden="true"></i>](https://www.bilibili.com/video/BV1Vb4y1z7DN?share_source=copy_web)    |
+|              | Spark       |          |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | Cassandra       |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+| 无结构化数据存储     | TxtFile    |         |          |
+|              | FTP        |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | HDFS       |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |     <i class="fa fa-check-circle" aria-hidden="true"></i>     |
+|              | Elasticsearch       |         |     <i class="fa fa-check-circle" aria-hidden="true"></i> [<i class="fa fa-film" aria-hidden="true"></i>](https://www.bilibili.com/video/BV1G64y1B7wm?share_source=copy_web)     |
+| 时间序列数据库 | OpenTSDB |  |  |
+|  | TSDB |  |  |
 
-  支持私有云，公有云，混合云部署。且能充分利用各种平台底层基础设施，可以最大限度地降低部署成本。
-    
-## 与Elastic Search的区别 
+## 联系我们
 
- 这是一个经常被用户问起的问题，总体来说TIS和[Elastic Search](https://www.elastic.co/)的区别主要在使用场景上。
- 
- - Elastic Search
-   
-   Elastic Search借助使用ELK工具套件，可以轻松实现，针对业务系统服务器产生的大量时序指标数据进行处理，形成可视化实时报表。用户借助Kibana提供强大的可视化组件，可以轻松可视化观测到系统的安全状况。所以它擅长的是时序数据为主的日志分析，并且针对的用户是`运维人员`。
-   
- - TIS
- 
-   专注于企业级应用搜索，通过无缝整合数仓及流式计算模块，处理的数据是`非时序数据`，为企业级客户提供`企业应用搜索`服务。 LBS地理位置搜索，商品系统搜索都属于`企业应用搜索`的范畴。
-   
-   因为`非时序数据`的特点是，原始数据创建之后会更新，需要TIS在架构设计上有别与ELK工具套件的架构体系，需要增加一个离线数仓组件，为索引实例定期构建全量数据。
-   
-   另外，`企业应用搜索`中的数据字段类型会更加复杂，例如，经纬度类型，各种动态类型，保存JSON等都需要在平台中更加方便快捷地定义。
-
-
- 
+<div class="row featurette">
+  <div class="col-12 col-sm-6">
+    <h3>钉钉讨论群</h3>
+    <h4>使用过程中有任何问题请随时联系我们</h4>
+    <center><img src="/img/tis/dingding_talk_group.jpg" width="250"></center>
+  </div>
+  <div class="col-12 col-sm-6">
+  </div>
+</div>

@@ -18,7 +18,7 @@ subtitle = "杭州晴朗网络科技有限公司是一家专注为客户提供�
 <div class="row featurette">
   <div class="col-12 col-sm-6">
     <h3>钉钉讨论群</h3>
-    <center><img src="/img/tis/dingding_talk_group.jpeg" width="250"></center>
+    <center><img src="/img/tis/dingding_talk_group.jpg" width="250"></center>
   </div>
   <div class="col-12 col-sm-6">
     <h3>微信公众号</h3>

@@ -35,7 +35,7 @@ weight: 9
   1. 下载
   
      ```shell script
-      wget http://mirror.qlangtech.com/3.0.0/tis/tis-uber.tar.gz
+      wget http://mirror.qlangtech.com/3.4.0/tis/tis-uber.tar.gz
      ```
   
   2. 解压
@@ -51,19 +51,40 @@ weight: 9
      ```
      执行shell启动
      ```shell script
-     ./bin/tis.sh start
+     ./bin/tis start
+     ```
+     重新启动
+     ```shell script
+          ./bin/tis restart
      ```
      终止TIS进程
      ```shell script
-     ./bin/tis.sh stop
-     ```   
+     ./bin/tis stop
+     ```
+     
+     TIS日志查看： 
+     ```shell script
+       tail -f -n 300 ./logs/tis.log
+     ```
+     
+     修改TIS启动端口：
+     
+     ```shell script
+        vi ./bin/tis
+     ```
+     里面有一个变量，可修改默认**8080**为其他端口，重启TIS（**./bin/tis restart**）即可生效，
+     ```
+     SERVER_PORT=8080
+     ```
+     
+      
   4. 进入TIS管理控制台，[http://127.0.0.1:8080](http://127.0.0.1:8080)  
    
   </div>
   <div class="col-10 col-sm-4 featurette">
    <h3>钉钉讨论群</h3>
       <h4>使用过程中有任何问题请随时联系我们</h4>
-      <center><img src="/img/tis/dingding_talk_group.jpeg" width="250"></center>
+      <center><img src="/img/tis/dingding_talk_group.jpg" width="250"></center>
   </div>
 </div>
 

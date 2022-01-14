@@ -54,6 +54,4 @@ hero_media = "rocket.png"
 
 利用TIS快速为您构建企业级数仓库服务 
 
-<i class="fas fa-film pr-1" aria-hidden="true"></i>[TIS介绍]({{<relref "/docs/#视频">}}) <i class="fas fa-film pr-1" aria-hidden="true"></i>[操作实例]({{<relref "/docs/guide/#操作视频">}})
-
 <span style="text-shadow: none;"><a class="github-button" href="https://github.com/qlangtech/tis-solr" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this on GitHub">Star</a><script async defer src="https://buttons.github.io/buttons.js"></script></span>
