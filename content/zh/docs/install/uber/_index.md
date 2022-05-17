@@ -44,38 +44,39 @@ weight: 9
      ```
      
   3. 启动
-     
-     进入目录 
-     ```shell script
-     cd tis-uber
-     ```
-     执行shell启动
-     ```shell script
-     ./bin/tis start
-     ```
-     重新启动
-     ```shell script
-          ./bin/tis restart
-     ```
-     终止TIS进程
-     ```shell script
-     ./bin/tis stop
-     ```
-     
-     TIS日志查看： 
-     ```shell script
-       tail -f -n 300 ./logs/tis.log
-     ```
-     
-     修改TIS启动端口：
-     
-     ```shell script
-        vi ./bin/tis
-     ```
-     里面有一个变量，可修改默认**8080**为其他端口，重启TIS（**./bin/tis restart**）即可生效，
-     ```
-     SERVER_PORT=8080
-     ```
+     * TIS启停
+         
+         进入目录 
+         ```shell script
+         cd tis-uber
+         ```
+         执行shell启动
+         ```shell script
+         ./bin/tis start
+         ```
+         重新启动
+         ```shell script
+         ./bin/tis restart
+         ```
+         终止TIS进程
+         ```shell script
+         ./bin/tis stop
+         ```
+         
+         TIS日志查看： 
+         ```shell script
+           tail -f -n 300 ./logs/tis.log
+         ```
+         
+     * TIS启动端口修改
+         
+         ```shell script
+            vi ./bin/tis
+         ```
+         里面有一个变量，可修改默认**8080**为其他端口，重启TIS（**./bin/tis restart**）即可生效，
+         ```
+         SERVER_PORT=8080
+         ```
      
       
   4. 进入TIS管理控制台，[http://127.0.0.1:8080](http://127.0.0.1:8080)  

@@ -26,7 +26,7 @@ weight: 11
 1. 下载
    
     ```shell script
-     wget http://mirror.qlangtech.com/3.3.0/tis/flink-tis-1.13.1-bin.tar.gz && rm -rf flink-tis-1.13.1 && mkdir flink-tis-1.13.1 && tar xvf flink-tis-1.13.1-bin.tar.gz -C ./flink-tis-1.13.1
+     wget http://mirror.qlangtech.com/3.4.0/tis/flink-tis-1.13.1-bin.tar.gz && rm -rf flink-tis-1.13.1 && mkdir flink-tis-1.13.1 && tar xvf flink-tis-1.13.1-bin.tar.gz -C ./flink-tis-1.13.1
     ```
 2. 解压Tar包
 
@@ -38,7 +38,7 @@ weight: 11
 
       ```shell script
         cd ./flink-tis-1.13.1
-        sh ./bin/start-cluster.sh
+        bash ./bin/start-cluster.sh
       ```
 
 4. 确认端口是否正常
@@ -48,10 +48,10 @@ weight: 11
    ```
    
 ## 总结
-  恭喜您已经把Flin Standalone模式的集群安装成功了
+  恭喜您已经把Flink Standalone模式的集群安装成功了
  
  {{% alert warning %}}
-  TIS中使用Flink Standalon模式是经过TIS团队适配过的，修改了Flink JobManager中ClassLoader执行逻辑，所以此处安装不能使用Flink官方发布的安装包
+  TIS中使用Flink Standalone模式是经过TIS团队适配过的，修改了Flink JobManager中ClassLoader执行逻辑，所以此处安装不能使用Flink官方发布的安装包
  {{% /alert %}}   
 
 
