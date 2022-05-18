@@ -2,6 +2,7 @@
 title: 基于TIS快速实现MySQL到StarRocks的实时数据同步方案
 date: 2021-12-03
 type: book
+weight: 1
 ---
 ## 背景
  企业大数据处理场景中，往往需要对海量数据快速分析统计，但这并不是传统[OLTP](https://baike.baidu.com/item/OLTP/5019563?fr=aladdin)关系数据库（如：MySQL、PostgreSQL、Oracle等）所擅长的，

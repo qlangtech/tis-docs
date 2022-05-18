@@ -35,7 +35,7 @@ weight: 9
   1. 下载
   
      ```shell script
-      wget http://mirror.qlangtech.com/3.4.0/tis/tis-uber.tar.gz
+      wget http://mirror.qlangtech.com/3.5.0/tis/tis-uber.tar.gz
      ```
   
   2. 解压

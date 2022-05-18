@@ -86,7 +86,7 @@
 
 [[main_right]]
   pre = "<span class=\"btn btn-primary d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3\" style=\"font-size: 16px; line-height: 1.1\">"
-  name = "开始创建"
+  name = "开始安装"
   post = "</span>"
   url = "../docs/install/uber/"
   weight = 50
@@ -95,5 +95,5 @@
   pre = "<span class=\"btn btn-default d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3\" style=\"font-size: 16px; line-height: 1.1\">"
   name = "<i class=\"fab fa-github\" ></i>  Github"
   post = "</span>"
-  url = "https://github.com/qlangtech/tis-solr"
+  url = "https://github.com/qlangtech/tis"
   weight = 40
