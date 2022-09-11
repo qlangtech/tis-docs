@@ -95,4 +95,56 @@ weight: 9
 ## 操作说明
 
    [查看]({{< relref "../../guide/" >}})
+   
+## QA 
+
+1. TIS启动时发现错误：**Caused by: java.lang.IllegalStateException: ip can not be 127.0.0.1**，具体如下：
+
+    ```shell script
+    Caused by: java.lang.RuntimeException: java.lang.IllegalStateException: ip can not be 127.0.0.1
+     at com.qlangtech.tis.solrj.util.ZkUtils.registerMyIp(ZkUtils.java:166)
+     at com.qlangtech.tis.solrj.util.ZkUtils.registerAddress2ZK(ZkUtils.java:107)
+     at com.qlangtech.tis.order.center.IndexSwapTaskflowLauncher.initIncrTransferStateCollect(IndexSwapTaskflowLauncher.java:174)
+     at com.qlangtech.tis.order.center.IndexSwapTaskflowLauncher.contextInitialized(IndexSwapTaskflowLauncher.java:120)
+     ... 24 more
+    Caused by: java.lang.IllegalStateException: ip can not be 127.0.0.1
+     at com.qlangtech.tis.solrj.util.ZkUtils.registerMyIp(ZkUtils.java:158)
+     ... 27 more
+    ``` 
+    
+    产生这个异常的原因是TIS启动时会获取所在节点IP地址，默认网络接口的IP地址此时为`127.0.0.1`，导致TIS启动异常。修复的办法是：
+    
+    首先执行： `ifconfig | grep -B 4 inet` 这个命令查看本地网络接口配置：
+    例如：
+    ```shell script
+    lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384
+        options=1203<RXCSUM,TXCSUM,TXSTATUS,SW_TIMESTAMP>
+        inet 127.0.0.1 netmask 0xff000000
+        inet6 ::1 prefixlen 128
+        inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1
+    --
+        media: autoselect (<unknown type>)
+        status: inactive
+    en3: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+        ether ac:de:48:00:11:22
+        inet6 fe80::aede:48ff:fe00:1122%en3 prefixlen 64 scopeid 0x9
+    --
+        media: autoselect
+        status: inactive
+    en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+        ether a4:83:e7:46:45:52
+        inet6 fe80::1cdd:c047:7849:13df%en0 prefixlen 64 secured scopeid 0xb
+        inet 192.168.28.156 netmask 0xffffff00 broadcast 192.168.28.255
+    ```
+    发现本地局域网IP 192.168.28.156对应的接口名称为 `en0`，因此需要在 `/bin/tis` 脚本中添加指定网络接口配置参数：`-Dtis.network.interface.preferred=en0`
+    
+    将java 启动的配置参数修改为：
+    
+    ```shell script
+    JAVA_OPTS="-Dtis.network.interface.preferred=en0 -Xms2G -Xmx3G -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=1024m -XX:ParallelGCThreads=4 -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=utf-8 -Dtis.launch.port=$SERVER_PORT -DnotFetchFromCenterRepository=true -Ddata.dir=${TIS_TIP}/data -Dlog.dir=$LOG_FILE -Dweb.root.dir=${TIS_TIP}/  -Xrunjdwp:transport=dt_socket,address=50000,suspend=n,server=y"
+    ```
+    
+    完成之后再启动TIS，就可以正常启动啦
+
+
       

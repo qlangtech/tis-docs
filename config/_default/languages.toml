@@ -11,4 +11,4 @@
   contentDir = "content/zh"
   title = "TIS"
   [zh.params]
-    description = "基于Apache Solr具有高性能、高可靠、高扩展性的企业级、一站式搜索中台产品"
+    description = "一站式DataOps中台产品，整合各类大数据组件，让您轻松构建企业级数仓，成为大数据领域的Jenkins"

@@ -34,7 +34,7 @@ TIS采用两种方式实现数据入湖：
 
 ## 实现原理
 实现原理如下图所示：
-![](http://assets.processon.com/chart_image/6284653e7d9c08797bb3ec2b.png)
+![](./hudi-arttecth.png)
 
 通过在TIS平台中定义Hudi数据湖实例，可以选择由DeltaStreamer来执行数据批量导入Hudi表，或者由Flink Job来执行增量Hudi表数据同步任务。
 
@@ -47,19 +47,106 @@ TIS的安装非常方便，只需三个步骤：下载一个tar压缩包，解�
 
 ## 视频教程
 
+<iframe style="width:500px;height:400px" src="http://player.bilibili.com/player.html?aid=299600503&bvid=BV1FF411L7Wh&cid=734887823&page=1" 
+scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+## 依赖版本
+
+本示例依赖如下组件版本：
+
+ | 组件名称| 版本    |
+ | -------- | -----  |
+ | Apache Hudi     | 0.10.1 |
+ | Apache Spark   |  spark-2.4.4-bin-hadoop2.7 |
+ | Apache Hive     | 2.1.1 以上  |
+ | Apache Hadoop  | 2.7.3 | 
+ | Apache Flink  | tis-1.13.1(基于Flink 1.13.1 定制，解决不同组件Source，Sink之间可能存在的三方依赖包冲突) |
+
 ## 创建MySQL到Hudi千表入湖通道
+
 
 ### 准备工作
 
 1. 准备一个MySQL测试数据库，版本5.7
-2. 安装Hudi运行环境（使用Hudi0.10.1）：为了简化演示，在Hudi安装包中一个一个Hudi docker-compose启动脚本，本说明中就用该执行脚本来创建Hudi运行环境
-    详细请查看：[https://hudi.apache.org/docs/next/docker_demo](https://hudi.apache.org/docs/next/docker_demo)
-   ``` shell script
+2. 下载Hudi [Source包](https://www.apache.org/dyn/closer.lua/hudi/0.10.1/hudi-0.10.1.src.tgz) 运行环境（使用Hudi0.10.1）：为了简化演示，在Hudi安装包中一个一个Hudi [docker compose](https://www.cnblogs.com/yang-qiu/p/15726821.html)启动脚本，本说明中就用该执行脚本来创建Hudi运行环境
+    详细请查看[https://hudi.apache.org/docs/next/docker_demo](https://hudi.apache.org/docs/next/docker_demo) 完成Hudi Docker运行环境安装
+  
+    启动docker-compose之前需要修改docker-compose的配置文件（./hudi-release-0.10.1/docker/compose/docker-compose_hadoop284_hive233_spark244.yml），在docker镜像实例`sparkmaster`与`spark-worker-1`上添加一个hosts配置文件可以避免
+    DeltatStreamer执行过程中提交任务端Hostname不能识别的错误：
+
+    <table>
+    <thead>
+     <tr>
+     <th>添加项
+     </th>
+       <th>
+       添加后效果
+        </th>
+     </tr>
+     </thead>
+     <tr>
+      <td>
+      
+         ``` yaml
+          extra_hosts:
+            - "baisui-test-1:192.168.28.200"
+          
+          ``` 
+      </td><td>
+       
+       ``` yaml       
+       sparkmaster:
+           image: apachehudi/hudi-hadoop_2.8.4-hive_2.3.3-sparkmaster_2.4.4:latest
+           hostname: sparkmaster
+           container_name: sparkmaster
+           env_file:
+             - ./hadoop.env
+           ports:
+             - "8080:8080"
+             - "7077:7077"
+           extra_hosts:
+             - "baisui-test-1:192.168.28.200"
+           environment:
+             - INIT_DAEMON_STEP=setup_spark
+           links:
+             - "hivemetastore"
+             - "hiveserver"
+             - "hive-metastore-postgresql"
+             - "namenode"
+       
+         spark-worker-1:
+           image: apachehudi/hudi-hadoop_2.8.4-hive_2.3.3-sparkworker_2.4.4:latest
+           hostname: spark-worker-1
+           container_name: spark-worker-1
+           env_file:
+             - ./hadoop.env
+           depends_on:
+             - sparkmaster
+           ports:
+             - "8081:8081"
+           extra_hosts:
+             - "baisui-test-1:192.168.28.200"
+           environment:
+             - "SPARK_MASTER=spark://sparkmaster:7077"
+           links:
+             - "hivemetastore"
+             - "hiveserver"
+             - "hive-metastore-postgresql"
+             - "namenode"
+         ```    
+      </td>
+     </tr>
+    </table>
+  
+    然后就可以启动Hudi docker-compose了
+    
+    ```shell script
    # 启动 
-   sh hudi-release-0.10.1/docker/setup_demo.sh
+   sh hudi-0.10.1/docker/setup_demo.sh
    # 停止
-   sh hudi-release-0.10.1/docker/stop_demo.sh 
-   ```
+   sh hudi-0.10.1/docker/stop_demo.sh 
+    ```
+
 3. 安装[tis-flink](http://tis.pub/docs/install/flink-cluster/standalone/)
 4. [安装单机版tis](http://tis.pub/docs/install/uber/)
 
@@ -67,10 +154,10 @@ TIS的安装非常方便，只需三个步骤：下载一个tar压缩包，解�
 |说明  | 图示    |
 | --- | ------- |
 |当完成**安装**步骤之后，进入TIS操作界面，点击菜单栏中`实例`链接|{{< figure src="../mysql-syn-starrocks/enter-tis.png" >}}|
-|进入实例列表，点击右侧`添加`下拉按钮中的`数据管道`，进行MySQL端到StarRocks端的数据同步通道构建 | {{< figure src="../mysql-syn-starrocks/instance-list.png" >}}|
+|进入实例列表，点击右侧`添加`下拉按钮中的`数据管道`，进行MySQL端到Hudi端的数据同步通道构建 | {{< figure src="../mysql-syn-starrocks/instance-list.png" >}}|
 |添加流程一共分为5步，第1步添加数据通道的基本信息|{{< figure src="../mysql-syn-starrocks/add-step-1.png" >}}|
 |进入数据端选择步骤，选择**Reader** **Writer**类型选择，由于系统刚安装，数据端类型对应的插件还没有选取，需要点击插件安装`添加`按钮，安装插件 | {{< figure src="../mysql-syn-starrocks/add-step-2-1.png" >}}|
-|从插件列表中选择`tis-ds-mysql-plugin`,`tis-datax-hudi-plugin`（Doris和StarRocks通用）两个插件进行安装 | {{< figure src="./add-step-2-2.png" >}} |
+|从插件列表中选择`tis-ds-mysql-plugin`,`tis-datax-hudi-plugin`两个插件进行安装 | {{< figure src="./add-step-2-2.png" >}} |
 |插件安装完毕，将`插件管理`页面关闭 |{{< figure src="./add-step-2-3.png" >}}|
 |Reader端选择`MySQL`,Writer端选择`Hudi`，点击`下一步`按钮，进行MySQL Reader的设置 | {{< figure src="add-step-3-1.png" >}}|
 |在Reader设置页面，点击`数据库名`项右侧`配置`下拉框中**MySqlV5** 数据源，完成表单填写，点击`保存`按钮，其他输入项目使用默认值即可，然后再点击`下一步`选取Reader端中需要处理的表|{{< figure src="../mysql-syn-starrocks/add-step-3.png" >}}|
@@ -100,3 +187,11 @@ TIS的安装非常方便，只需三个步骤：下载一个tar压缩包，解�
 - 完美实现低代码配置DataOps的目标，帮助用户大大提高工作效率，且避免出错
 
 > 还等什么呢？赶快试用一下吧
+
+## 后续
+本次是TIS与数据湖产品Hudi的整合的初次尝试，Hudi的配置项比较繁杂，且各个配置项之间又存在各种依赖关系。
+
+TIS对Hudi的封装过程中还没有将Hudi的所有配置项（例如：Indexer的配置相关）开放给用户配置，后续会陆续完善。
+
+假如您TIS有功能需求，请在Github的Issue栏中添加：[https://github.com/qlangtech/tis/issues](https://github.com/qlangtech/tis/issues)
+

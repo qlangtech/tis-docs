@@ -598,3 +598,23 @@ div.alert a {
   background-color: #fff5f7;
   border-color: #ff3860;
 }
+
+.plugin-link {
+  all: initial;
+  display:inline-block;
+  padding: 3px;
+  margin-right:5px;
+  //background-color: #ffed73;
+  border: 1px black solid;
+  border-radius: 10px;
+
+}
+
+.plugin-link a {
+  color: white;
+}
+
+.endtype-name{
+ font-size: 16px;
+  font-weight: bold;
+}

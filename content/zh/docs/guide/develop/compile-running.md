@@ -65,7 +65,7 @@ mvn clean package -Dmaven.test.skip=true -Dappname=all
 
 #### 构建 qlangtech/ng-tis
 
-为了加速ng-tis构建速度，需要先执行下载
+为了加速ng-tis构建速度，需要先执行下载`tis-console-ng-node-modules.tar.gz`,已经事先对本地项目中**node_modules**中npm依赖打包在其中
 
 ```shell script
 cd ng-tis
@@ -73,7 +73,14 @@ wget http://tis-release.oss-cn-beijing.aliyuncs.com/tis-console-ng-node-modules.
 tar xvf tis-console-ng-node-modules.tar.gz
 ```
 
-已经事先对本地项目中**node_modules**中npm依赖包进行打包
+安装Angular cli工具（具体版本要与ng-tis/package.json中Angular的依赖版本相一致）
+```shell script
+npm install -g @angular/cli@12.2.13
+```
+如果之前已经安装了其他版本的`@angular/cli`，可以先将其删除再安装
+```shell script
+npm uninstall -g @angular/cli 
+```
 
 ### 启动&调试
 
@@ -115,19 +122,31 @@ done ;
 
 ```
 
-#### 启动TIS
+#### 启动TIS Console
 
 1. cd tis/tis-console/src/test/java/
-2. 运行 StartTISWeb 单元测试
+2. 运行 `StartTISWeb` 单元测试
+   
+   ```shell script
+   mvn compile test -Dtest=StartTISWeb
+   ```
    
    启动过程需要指定以下JVM参数：
    
    ```shell script
-     -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=50001 -Dtis.launch.port=9999
+     -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=50001 -Dtis.launch.port=8080
    ```
-   开启50001的远程调试端口，并且以9999端口运行http servlet
+   开启50001的远程调试端口，并且以8080端口运行http servlet
    
 #### 启动TIS Web
 
 1.  cd ng-tis
-2.  运行 npm run ng:serve-jit --scripts-prepend-node-path=auto
+2.  运行 `npm run ng:serve-jit --scripts-prepend-node-path=auto`
+
+#### 启动Assemble Web
+
+Assemble节点负责执行TIS Console提交过来批量执行任务
+
+1. cd tis/tis-assemble/src/test/java/
+2. 运行 `StartAssembleWeb` 单元测试
+

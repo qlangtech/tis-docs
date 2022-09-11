@@ -14,8 +14,13 @@ TIS的愿景是实现企业大数据ETL(Extraction-Transformation-Loading)全覆
 ## 视频示例
 
 
-* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;启用分布式执行功能](https://www.bilibili.com/video/BV1Cq4y1D7z4?share_source=copy_web)
-* [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入ElasticSearch](https://www.bilibili.com/video/BV1G64y1B7wm?share_source=copy_web)
+* <i class="fa fa-film" aria-hidden="true"></i>&nbsp;启用分布式执行功能
+
+    <iframe src="http://player.bilibili.com/player.html?aid=589563709&bvid=BV1Cq4y1D7z4&cid=382965923&page=1" scrolling="no" style="width:500px;height:400px" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+* <i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入ElasticSearch
+
+    <iframe src="//player.bilibili.com/player.html?aid=759515697&bvid=BV1G64y1B7wm&cid=381668108&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:500px;height:400px"> </iframe>
 * [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入Hive](https://www.bilibili.com/video/BV1Vb4y1z7DN?share_source=copy_web)
 * [<i class="fa fa-film" aria-hidden="true"></i>&nbsp;MySQL导入Clickhouse](https://www.bilibili.com/video/BV1x64y1B7V8/)
 

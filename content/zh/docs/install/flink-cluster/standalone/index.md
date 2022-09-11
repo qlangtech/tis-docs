@@ -26,7 +26,7 @@ weight: 11
 1. 下载
    
     ```shell script
-     wget http://mirror.qlangtech.com/3.4.0/tis/flink-tis-1.13.1-bin.tar.gz && rm -rf flink-tis-1.13.1 && mkdir flink-tis-1.13.1 && tar xvf flink-tis-1.13.1-bin.tar.gz -C ./flink-tis-1.13.1
+     wget http://mirror.qlangtech.com/3.5.0/tis/flink-tis-1.13.1-bin.tar.gz && rm -rf flink-tis-1.13.1 && mkdir flink-tis-1.13.1 && tar xvf flink-tis-1.13.1-bin.tar.gz -C ./flink-tis-1.13.1
     ```
 2. 解压Tar包
 
